@@ -21,5 +21,5 @@ function trelloAuth() {
 
 $(document).ready(function() {
   // authorie Trello app
-  trelloAuth;
+  trelloAuth();
 });
