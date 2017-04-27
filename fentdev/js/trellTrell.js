@@ -37,7 +37,10 @@ $(document).ready(function() {
       "'></div></div>");
       Trello.get("boards/" + boardData[bd].id + "/lists", function(listData) {
         for (var ld = 0; ld < listData.length; ld++) {
-          listsArray.push(listData[ld]); } });
+          listsArray.push(listData[ld]);
+          $("#" + listData[ld].idBoard).append("<div class='list'><h2>" +
+          listData[ld].name + "</h2><div class='list-cards' id='" +
+          listData[ld].id + "'></div></div>"); } });
       Trello.get("boards/" + boardData[bd].id + "/cards", function(cardData) {
         for (var cd = 0; cd < cardData.length; cd++) {
           cardsArray.push(cardData[cd]); } });
