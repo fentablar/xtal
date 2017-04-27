@@ -16,7 +16,7 @@ main {
   background-color: #202020;
   color: gainsboro;
   padding: 10px 20px;
-  margin-bottom: 10px;
+  border: 1px solid gainsboro;
   border-radius: 10px;
 }
 
