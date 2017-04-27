@@ -1,0 +1,60 @@
+* {box-sizing: border-box}
+
+body {
+  background-color: gainsboro;
+  color: #202020;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.board {
+  background-color: #202020;
+  color: gainsboro;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.board h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 3px 0;
+}
+
+.board-lists {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.list {
+  background-color: gainsboro;
+  color: #202020;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  border: 1px solid #202020;
+  border-radius: 5px;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.list h2 {
+  font-weight: bold;
+}
+
+.list-cards {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 5px 0;
+}
+
+.card {
+  background-color: snow;
+  color: #101010;
+  padding: 7px;
+  margin: 5px 0;
+  border-radius: 3px;
+}
