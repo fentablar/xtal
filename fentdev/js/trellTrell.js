@@ -20,11 +20,6 @@ function trelloAuth() {
 }
 
 $(document).ready(function() {
-  // define arrays to contain board,list,card data
-  var boardsArray = [];
-  var listsArray = [];
-  var cardsArray = [];
-
   // authorie Trello app
   trelloAuth();
 
