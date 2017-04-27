@@ -23,8 +23,10 @@ var reapTrelloData = function() {
         }
       }, function() { console.log("list load failed"); });
     }
-  }, function() { console.log("board load failure"); });
+  }, function() { console.log("board load failed"); });
 };
+
+var trelloAuthFail = function() { console.log("Trello auth FAIL"); };
 
 $(document).ready(function() {
   //authorize Trello app
@@ -37,6 +39,6 @@ $(document).ready(function() {
     },
     expiration: "never",
     success: reapTrelloData,
-    error: function() { console.log("Trello auth FAIL"); }
+    error: trelloAuthFail
   });
 });
