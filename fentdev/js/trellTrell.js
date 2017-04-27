@@ -32,6 +32,9 @@ $(document).ready(function() {
   Trello.get("members/me/boards", function(boardData) {
     for (var bd = 0; bd < boardData.length; bd++) {
       boardsArray.push(boardData[bd]);
+      $("main").append("<div class='board'><h1>" + boardsArray[bd].name +
+      "</h1><div class='board-lists' id='" + boardsArray[bd].id +
+      "'></div></div>");
       Trello.get("boards/" + boardData[bd].id + "/lists", function(listData) {
         for (var ld = 0; ld < listData.length; ld++) {
           listsArray.push(listData[ld]); } });
@@ -40,10 +43,4 @@ $(document).ready(function() {
           cardsArray.push(cardData[cd]); } });
     }
   });
-
-  for (var ba = 0; ba < boardsArray.length; ba++) {
-    $("main").append("<div class='board'><h1>" + boardsArray[ba].name +
-    "</h1><div class='board-lists' id='" + boardsArray[ba].id +
-    "'></div></div>");
-  }
 });
