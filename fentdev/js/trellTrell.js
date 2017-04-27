@@ -35,7 +35,7 @@ $(document).ready(function() {
           Trello.get("lists/" + listData[ld].id + "/cards", function(cardData) {
             for (var cd = 0; cd < cardData.length; cd++) {
               $("#" + cardData[cd].idList).append("<div class='card' id='" +
-              cardData[cd].id + "><p>" + cardData[cd].name + "</p></div>");
+              cardData[cd].id + "'><p>" + cardData[cd].name + "</p></div>");
             }
           });
         }
