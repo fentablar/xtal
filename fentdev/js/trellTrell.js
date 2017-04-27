@@ -1,12 +1,34 @@
-// function to authorize Trello app
-function trelloAuth() {
-  var trelloAuthSuccess = function() {
-    console.log("Trello auth SUCCESS");
-  };
-  var trelloAuthFail = function() {
-    console.log("Trello auth FAIL");
-  };
-  Trello.authorize({
+var reapTrelloData = function() {
+
+  //get Trello boards, make container, label for each
+  Trello.get("members/me/boards", function(boardData) {
+    for (var bd = 0; bd < boardData.length; bd++) {
+      $("main").append("<div class='board'><h1>" + boardData[bd].name +
+      "</h1><div class='board-lists' id='" + boardData[bd].id + "'></div></div>");
+
+      //get lists fr each board, make container, label in board for each
+      Trello.get("boards/" + boardData[bd].id + "/lists", function(listData) {
+        for (var ld = 0; ld < listData.length; ld++) {
+          $("#" + listData[ld].idBoard).append("<div class='list'><h2>" +
+          listData[ld].name + "</h2><div class='list-cards' id='" +
+          listData[ld].id + "'></div></div>");
+
+          //get cards fr each list, make container, label in list for each
+          Trello.get("lists/" + listData[ld].id + "/cards", function(cardData) {
+            for (var cd = 0; cd < cardData.length; cd++) {
+              $("#" + cardData[cd].idList).append("<div class='card' id='" +
+              cardData[cd].id + "'><p>" + cardData[cd].name + "</p></div>");
+            }
+          }, function() { console.log("card load failed"); });
+        }
+      }, function() { console.log("list load failed"); });
+    }
+  }, function() { console.log("board load failure"); });
+};
+
+$(document).ready(function() {
+  //authorize Trello app
+  Trello.authorize( {
     type: "popup",
     name: "chingu raccoons xtal",
     scope: {
@@ -14,32 +36,7 @@ function trelloAuth() {
       write: "true"
     },
     expiration: "never",
-    success: trelloAuthSuccess,
-    error: trelloAuthFail
-  });
-}
-
-$(document).ready(function() {
-  // authorie Trello app
-  trelloAuth();
-  Trello.get("members/me/boards", function(boardData) {
-    for (var bd = 0; bd < boardData.length; bd++) {
-      $("main").append("<div class='board'><h1>" + boardData[bd].name +
-      "</h1><div class='board-lists' id='" + boardData[bd].id +
-      "'></div></div>");
-      Trello.get("boards/" + boardData[bd].id + "/lists", function(listData) {
-        for (var ld = 0; ld < listData.length; ld++) {
-          $("#" + listData[ld].idBoard).append("<div class='list'><h2>" +
-          listData[ld].name + "</h2><div class='list-cards' id='" +
-          listData[ld].id + "'></div></div>");
-          Trello.get("lists/" + listData[ld].id + "/cards", function(cardData) {
-            for (var cd = 0; cd < cardData.length; cd++) {
-              $("#" + cardData[cd].idList).append("<div class='card' id='" +
-              cardData[cd].id + "'><p>" + cardData[cd].name + "</p></div>");
-            }
-          });
-        }
-      });
-    }
+    success: reapTrelloData,
+    error: function() { console.log("Trello auth FAIL"); }
   });
 });
