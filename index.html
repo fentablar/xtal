@@ -2,32 +2,44 @@
 <html>
 
   <head>
-
-  <meta charset="UTF-8">
-
-  <title>title</title>
-
-  <link type="text/css" rel="stylesheet" href="css/style.css"/> </head>
-
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+  </head>
   <!-- jQuery and Trello API with Application Key to use client.js library.
     https://developers.trello.com/get-started/start-building -->
-
   <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script src="https://api.trello.com/1/client.js?key="ADD-APP-ID-HERE"></script>
+  <script src="https://api.trello.com/1/client.js?key=341c3cd6e98ca493d7a400e4b76f8554"></script>
+  <body>
 
-  <div class="flex-container">
+    <div class="flex-container">
 
-    <div class="flex-item">
+      <div class="flex-item">
 
-      <p id="getTrelloData">text</p>
+	<form action="">
+
+	  <select name="cars">
+
+	    <option value="volvo">Volvo</option>
+	    <option value="saab">Saab</option>
+	    <option value="fiat">Fiat</option>
+	    <option value="audi">Audi</option>
+
+	  </select>
+
+	  <br><br>
+
+	  <input type="submit">
+
+	</form>
+
+	<p id="getTrelloData">text</p>
+
+      </div>
 
     </div>
-
-  </div>
   
-  <script src="js/test.0.1.js"></script> 
-  <script src="http://livejs.com/live.js"></script>
-
+    <script src="js/test.0.1.js"></script> 
+    <script src="http://livejs.com/live.js"></script>
   </body>
-
 </html>

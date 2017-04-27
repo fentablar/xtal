@@ -26,7 +26,7 @@ Trello.authorize({
 
 // Creating a Card (Added my card IDLIST to var myList.)
 
-var myList = "INSERT YOUR IDLIST HERE"
+var myList = "5901132d1fb26fc07fe699b5";
 var creationSuccess = function(data) {
   console.log('Card created successfully. Data returned:' + JSON.stringify(data));
 };
