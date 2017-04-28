@@ -1,4 +1,4 @@
-var initScrollbars = function() {
+function initScrollbars() {
   $(".board").mCustomScrollbar({
     axis: "x",
     theme: "inset-2",
@@ -12,7 +12,7 @@ var initScrollbars = function() {
     theme: "minimal-dark",
     scrollIntertia: 0
   });
-};
+}
 
 var reapTrelloData = function() {
 
@@ -39,7 +39,6 @@ var reapTrelloData = function() {
         }
       }, function() { console.log("list load failed"); });
     }
-    initScrollbars;
   }, function() { console.log("board load failed"); });
 };
 
@@ -58,4 +57,5 @@ $(document).ready(function() {
     success: reapTrelloData,
     error: trelloAuthFail
   });
+  initScrollbars();
 });
