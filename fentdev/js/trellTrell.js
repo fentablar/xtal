@@ -1,3 +1,19 @@
+var initScrollbars = function() {
+  $(".board").mCustomScrollbar({
+    axis: "x",
+    theme: "inset-2",
+    scrollIntertia: 0,
+    mouseWheel: {
+      enable: false
+    }
+  });
+  $(".list-cards").mCustomScrollbar({
+    axis: "y",
+    theme: "minimal-dark",
+    scrollIntertia: 0
+  });
+};
+
 var reapTrelloData = function() {
 
   //get Trello boards, make container, label for each
@@ -23,27 +39,13 @@ var reapTrelloData = function() {
         }
       }, function() { console.log("list load failed"); });
     }
+    initScrollbars;
   }, function() { console.log("board load failed"); });
 };
 
 var trelloAuthFail = function() { console.log("Trello auth FAIL"); };
 
 $(document).ready(function() {
-  //init mCustomScrollbar for board-lists and list-cards
-  $(".board").mCustomScrollbar({
-    axis: "x",
-    theme: "inset-2",
-    scrollInertia: 0,
-    mouseWheel: {
-      enable: false
-    }
-  });
-  $(".list-cards").mCustomScrollbar({
-    axis: "y",
-    theme: "minimal-dark",
-    scrollInertia: 0
-  });
-
   //authorize Trello app
   Trello.authorize( {
     type: "popup",
