@@ -19,6 +19,7 @@ main {
   padding: 10px 20px;
   border: 1px solid gainsboro;
   border-radius: 10px;
+  overflow-x: auto;
 }
 
 .board h1 {
@@ -31,7 +32,6 @@ main {
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-start;
-  overflow-x: auto;
 }
 
 .list {
