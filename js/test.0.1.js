@@ -26,7 +26,7 @@ Trello.authorize({
 
 // Creating a Card (Added my card IDLIST to var myList.)
 
-var myList = "5901132d1fb26fc07fe699b5";
+var myList = "58d282edc3e7513f7fe3d3c4";
 var creationSuccess = function(data) {
   console.log('Card created successfully. Data returned:' + JSON.stringify(data));
 };
@@ -39,4 +39,28 @@ var newCard = {
      pos: 'top'
 };
 
-Trello.post('/cards/', newCard, creationSuccess);
+// Load boards for dropdown select.
+
+var loadedBoards = function(boards) {
+  $.each(boards, function(index, value) {
+    $('#boardSelect')
+      .append($("<option></option>")
+      .attr("value",value.id)
+      .text(value.name)); 
+  });
+};
+
+// Get the users boards
+
+var loadBoards = function() {
+  Trello.get(
+    '/members/me/boards/',
+    loadedBoards,
+    function() { console.log("Failed to load boards"); }
+  );
+};
+
+// Submit the Trello card.
+$("#submitCard").submit( function() {
+    Trello.post('/cards/', newCard, creationSuccess);
+});
