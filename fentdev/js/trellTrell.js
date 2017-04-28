@@ -1,19 +1,3 @@
-function initScrollbars() {
-  $(".board").mCustomScrollbar({
-    axis: "x",
-    theme: "inset-2",
-    scrollIntertia: 0,
-    mouseWheel: {
-      enable: false
-    }
-  });
-  $(".list-cards").mCustomScrollbar({
-    axis: "y",
-    theme: "minimal-dark",
-    scrollIntertia: 0
-  });
-}
-
 var reapTrelloData = function() {
 
   //get Trello boards, make container, label for each
@@ -57,5 +41,4 @@ $(document).ready(function() {
     success: reapTrelloData,
     error: trelloAuthFail
   });
-  initScrollbars();
 });
