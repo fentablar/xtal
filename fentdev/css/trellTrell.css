@@ -29,6 +29,7 @@ main {
 .board-lists {
   display: flex;
   flex-flow: row wrap;
+  align-items: flex-start;
 }
 
 .list {
