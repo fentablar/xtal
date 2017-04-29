@@ -3,7 +3,8 @@ var reapTrelloData = function() {
   //get Trello boards, make container, label for each
   Trello.get("members/me/boards", function(boardData) {
     for (var bd = 0; bd < boardData.length; bd++) {
-      $("main").append("<div class='board' id='" + boardData[bd].id + "'><h1>" + boardData[bd].name + "</h1><div class='board-lists'></div></div>");
+      $("main").append("<div class='board' id='" + boardData[bd].id + "'><h1>" +
+      boardData[bd].name + "</h1><div class='board-lists'></div></div>");
 
       //get lists fr each board, make container, label in board for each
       Trello.get("boards/" + boardData[bd].id + "/lists", function(listData) {
@@ -19,8 +20,21 @@ var reapTrelloData = function() {
               cardData[cd].id + "'><p>" + cardData[cd].name + "</p></div>");
             }
           }, function() { console.log("card load failed"); });
+          $(".list-cards").mCustomScrollbar({
+            axis: "y",
+            theme: "minimal-dark",
+            scrollInertia: 0
+          });
         }
       }, function() { console.log("list load failed"); });
+      $(".board").mCustomScrollbar({
+        axis: "x",
+        theme: "inset-2",
+        scrollInertia: 0,
+        mouseWheel: {
+          enable: false
+        }
+      });
     }
   }, function() { console.log("board load failed"); });
 };
