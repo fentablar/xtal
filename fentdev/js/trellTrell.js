@@ -28,6 +28,22 @@ var reapTrelloData = function() {
 
 var trelloAuthFail = function() { console.log("Trello auth FAIL"); };
 
+var loadScrollers = function() {
+  $(".board").mCustomScrollbar({
+    axis: "x",
+    theme: "inset-2",
+    scrollInertia: 0,
+    mouseWheel: {
+      enable: false
+    }
+  });
+  $(".list-cards").mCustomScrollbar({
+    axis: "y",
+    theme: "minimal-dark",
+    scrollInertia: 0
+  });
+};
+
 $(document).ready(function() {
   //authorize Trello app
   Trello.authorize( {
@@ -41,4 +57,5 @@ $(document).ready(function() {
     success: reapTrelloData,
     error: trelloAuthFail
   });
+  reapTrelloData.done(loadScrollers);
 });
