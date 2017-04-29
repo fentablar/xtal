@@ -57,5 +57,5 @@ $(document).ready(function() {
     success: reapTrelloData,
     error: trelloAuthFail
   });
-  reapTrelloData.done(loadScrollers);
+  $.when(reapTrelloData).done(loadScrollers);
 });
