@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+  </head>
+  <!-- jQuery and Trello API with Application Key to use client.js library.
+    https://developers.trello.com/get-started/start-building -->
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="https://api.trello.com/1/client.js?key=341c3cd6e98ca493d7a400e4b76f8554"></script>
+  <body>
+
+<!--0.0.1 -->
+
+<!-- <div class="flex-container">-->
+      <!--<div class="flex-item">-->
+	<!--<form>-->
+          <!--<div class="flex-item">-->
+            <!--<p> selectBoard </p>-->
+            <!--<select id="selectBoard"></select>-->
+              <!--</br>-->
+          <!--</div>-->
+	<!--</form>-->
+      <!--</div>-->
+    <!--</div>-->
+
+<!-- Trello Login Toggle  -->
+  <div>
+      <div id="loggedOut">
+	<a id="syncTrello" href="#">Trello Sync</a>
+      </div>
+  </div>
+
+  <div id="loggedIn">
+     <div id="header">Trello User: <span id="fullName"></span> 
+	<a id="userLogout" href="#">Log Out</a>
+     </div>
+  </div>
+  <div class="flex-container">
+
+    <!-- Dropdown to choose a Trello board. -->    
+    <div class="flex-item">
+	<label>chooseLists (ID)</label>
+	<div id="chooseLists">
+	</div>
+
+	<!-- Display the list and cards -->
+	<label>displayCards (ID)</label>
+	<div id="displayCards">
+	</div>    
+    </div>    
+
+    <div class="flex-item">
+	<p id="getTrelloData">add-card (Class)</p>
+	<p> submitCard (ID)</p>
+	<input id="submitCard" type="submit"></input>
+    </div>
+  </div>
+
+    <script src="js/test.0.1.js"></script> 
+    <script src="http://livejs.com/live.js"></script>
+  </body>
+</html>
