@@ -14,6 +14,23 @@
   <script src="https://api.trello.com/1/client.js?key=82589d1c18849007fe36fbb1db07e5be"></script>
   <script src="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.1.5/jquery.mCustomScrollbar.min.js"></script>
   <script src="js/trellTrell.js"></script>
+  <script>
+    (function($){
+      $(".board").mCustomScrollbar({
+        axis: "x",
+        theme: "inset-2",
+        scrollInertia: 0,
+        mouseWheel: {
+          enable: false
+        }
+      });
+      $(".list-cards").mCustomScrollbar({
+        axis: "y",
+        theme: "minimal-dark",
+        scrollInertia: 0
+      });
+    })(jQuery);
+  </script>
 </head>
 <body>
   <main>

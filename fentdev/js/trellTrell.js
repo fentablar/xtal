@@ -42,20 +42,3 @@ $(document).ready(function() {
     error: trelloAuthFail
   });
 });
-
-$(window).on("load", function() {
-  $(".board").mCustomScrollbar({
-    axis: "x",
-    theme: "inset-2",
-    scrollInertia: 0,
-    mouseWheel: {
-      enable: false
-    }
-  });
-  $(".list-cards").mCustomScrollbar({
-    axis: "y",
-    theme: "minimal-dark",
-    scrollInertia: 0
-  });
-  console.log("window on load");
-});
