@@ -30,7 +30,7 @@ var realTrelloData = function() {
       Trello.get("lists/" + lists[i].id + "/cards", function(cardData) {
         for (var k = 0; k < cardData.length; k++) {
           cards.push(cardData[k]);
-          $("#" + cardData[k]idList + " > .list-cards").append("<div class='card' id='" +
+          $("#" + cardData[k].idList + " > .list-cards").append("<div class='card' id='" +
           cardData[k].id + "'><p>" + cardData[k].name + "</p></div>");
         }
       });
