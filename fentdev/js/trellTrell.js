@@ -30,7 +30,7 @@ var reapTrelloData = (function() {
       }, function() { console.log("list load failed"); });
     }
   }, function() { console.log("board load failed"); });
-}).done(function() {
+}).then(function() {
   console.log("load scrollers");
   $(".board").mCustomScrollbar({
     axis: "x",
