@@ -9,6 +9,7 @@ var reapTrelloData = function() {
     console.log("getting boards");
     for (var i = 0; i < boardData.length; i++) {
       boards.push(boardData[i]);
+      console.log("board " + i);
       $("main").append("<div class='board' id='" + boardData[i].id + "'><h1>" +
       boardData[i].name + "</h1><div class = 'board-lists'></div></div>");
     }
@@ -18,6 +19,7 @@ var reapTrelloData = function() {
       Trello.get("boards/" + boards[i].id + "/lists", function(listData) {
         for (var k = 0; k < listData.length; k++) {
           lists.push(listData[k]);
+          console.log("list " + k);
           $("#" + listData[k].idBoard + " > .board-lists").append("<div class='list' id='" +
           listData[k].id + "'><h2>" + listData[k].name +
           "</h2><div class='list-cards'></div></div>");
@@ -30,6 +32,7 @@ var reapTrelloData = function() {
       Trello.get("lists/" + lists[i].id + "/cards", function(cardData) {
         for (var k = 0; k < cardData.length; k++) {
           cards.push(cardData[k]);
+          console.log("card " + k);
           $("#" + cardData[k].idList + " > .list-cards").append("<div class='card' id='" +
           cardData[k].id + "'><p>" + cardData[k].name + "</p></div>");
         }
