@@ -20,7 +20,6 @@ function reapTrelloData() {
           $("#" + listData[ld].idBoard + " > .board-lists").append("<div class='list' id='" +
           listData[ld].id + "'><h2>" + listData[ld].name +
           "</h2><div class='list-cards'></div></div>");
-          $("#" + listData[ld].idBoard).mCustomScrollbar("update");
 
           //get cards fr each list, make container, label in list for each
           Trello.get("lists/" + listData[ld].id + "/cards", function(cardData) {
@@ -28,7 +27,6 @@ function reapTrelloData() {
             for (var cd = 0; cd < cardData.length; cd++) {
               $("#" + cardData[cd].idList + " > .list-cards").append("<div class='card' id='" +
               cardData[cd].id + "'><p>" + cardData[cd].name + "</p></div>");
-              $("#" + cardData[cd].idLIst).mCustomScrollbar("update");
             }
           }, function() { console.log("card load failed"); });
         }
