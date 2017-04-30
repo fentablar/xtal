@@ -37,6 +37,9 @@ var reapTrelloData = function() {
     }
   }).then(function() {
     console.log("load scrollers");
+    console.log(boards);
+    console.log(lists);
+    console.log(cards);
     $(".board").mCustomScrollbar({
       axis: "x",
       theme: "inset-2",
