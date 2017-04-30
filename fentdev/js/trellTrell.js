@@ -1,63 +1,51 @@
 var trelloAuthFail = function() { console.log("Trello auth FAIL") };
 
-var reapTrelloData = function() {
-  console.log("Trello auth success");
+var reapTrelloData = (function() {
+  console.log("trell auth success");
 
-  var boards = [], lists = [], cards = [];
-
+  //get Trello boards, make container, label for each
   Trello.get("members/me/boards", function(boardData) {
-    console.log("getting boards");
-    for (var i = 0; i < boardData.length; i++) {
-      boards.push(boardData[i]);
-      console.log("board " + i);
-      $("main").append("<div class='board' id='" + boardData[i].id + "'><h1>" +
-      boardData[i].name + "</h1><div class = 'board-lists'></div></div>");
-    }
-  }).then(function() {
-    console.log("getting lists");
-    for (var i = 0; i < boards.length; i++) {
-      Trello.get("boards/" + boards[i].id + "/lists", function(listData) {
-        for (var k = 0; k < listData.length; k++) {
-          lists.push(listData[k]);
-          console.log("list " + k);
-          $("#" + listData[k].idBoard + " > .board-lists").append("<div class='list' id='" +
-          listData[k].id + "'><h2>" + listData[k].name +
+    console.log("calling boards");
+    for (var bd = 0; bd < boardData.length; bd++) {
+      $("main").append("<div class='board' id='" + boardData[bd].id + "'><h1>" +
+      boardData[bd].name + "</h1><div class='board-lists'></div></div>");
+
+      //get lists fr each board, make container, label in board for each
+      Trello.get("boards/" + boardData[bd].id + "/lists", function(listData) {
+        console.log("calling lists");
+        for (var ld = 0; ld < listData.length; ld++) {
+          $("#" + listData[ld].idBoard + " > .board-lists").append("<div class='list' id='" +
+          listData[ld].id + "'><h2>" + listData[ld].name +
           "</h2><div class='list-cards'></div></div>");
+
+          //get cards fr each list, make container, label in list for each
+          Trello.get("lists/" + listData[ld].id + "/cards", function(cardData) {
+            console.log("calling cards");
+            for (var cd = 0; cd < cardData.length; cd++) {
+              $("#" + cardData[cd].idList + " > .list-cards").append("<div class='card' id='" +
+              cardData[cd].id + "'><p>" + cardData[cd].name + "</p></div>");
+            }
+          }, function() { console.log("card load failed"); });
         }
-      });
+      }, function() { console.log("list load failed"); });
     }
-  }).then(function() {
-    console.log("getting cards");
-    for (var i = 0; i < lists.length; i++) {
-      Trello.get("lists/" + lists[i].id + "/cards", function(cardData) {
-        for (var k = 0; k < cardData.length; k++) {
-          cards.push(cardData[k]);
-          console.log("card " + k);
-          $("#" + cardData[k].idList + " > .list-cards").append("<div class='card' id='" +
-          cardData[k].id + "'><p>" + cardData[k].name + "</p></div>");
-        }
-      });
+  }, function() { console.log("board load failed"); });
+}).done(function() {
+  console.log("load scrollers");
+  $(".board").mCustomScrollbar({
+    axis: "x",
+    theme: "inset-2",
+    scrollInertia: 0,
+    mouseWheel: {
+      enable: false
     }
-  }).then(function() {
-    console.log("load scrollers");
-    console.log(boards);
-    console.log(lists);
-    console.log(cards);
-    $(".board").mCustomScrollbar({
-      axis: "x",
-      theme: "inset-2",
-      scrollInertia: 0,
-      mouseWheel: {
-        enable: false
-      }
-    });
-    $(".list-cards").mCustomScrollbar({
-      axis: "y",
-      theme: "minimal-dark",
-      scrollInertia: 0
-    });
   });
-};
+  $(".list-cards").mCustomScrollbar({
+    axis: "y",
+    theme: "minimal-dark",
+    scrollInertia: 0
+  });
+});
 
 $(function() {
   Trello.authorize({
