@@ -1,6 +1,6 @@
 var trelloAuthFail = function() { console.log("Trello auth FAIL") };
 
-var reapTrelloData = (function() {
+var reapTrelloData = function() {
   console.log("trell auth success");
 
   //get Trello boards, make container, label for each
@@ -30,22 +30,7 @@ var reapTrelloData = (function() {
       }, function() { console.log("list load failed"); });
     }
   }, function() { console.log("board load failed"); });
-}).then(function() {
-  console.log("load scrollers");
-  $(".board").mCustomScrollbar({
-    axis: "x",
-    theme: "inset-2",
-    scrollInertia: 0,
-    mouseWheel: {
-      enable: false
-    }
-  });
-  $(".list-cards").mCustomScrollbar({
-    axis: "y",
-    theme: "minimal-dark",
-    scrollInertia: 0
-  });
-});
+};
 
 $(function() {
   Trello.authorize({
