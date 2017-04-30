@@ -57,5 +57,5 @@ function reapTrelloData() {
 }
 
 $(function() {
-  autorizeTrello();
+  authorizeTrello();
 });
