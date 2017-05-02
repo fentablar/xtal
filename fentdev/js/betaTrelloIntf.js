@@ -11,4 +11,8 @@ $(function() {
       $("#viewBoards").css({"display": "block"});
     }
   });
+
+  $("#actionItemsShowHide").on("click", function() {
+    $(".actionsCategory").toggleClass("hideMe");
+  });
 });
