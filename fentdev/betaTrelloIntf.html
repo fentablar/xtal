@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>beta Trello Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/betaTrelloIntf.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://api.trello.com/1/client.js?key=82589d1c18849007fe36fbb1db07e5be"></script>
+  <script src="js/betaTrelloIntf.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="navButton navActive" id="dashButton">
+        <span>View Dashboard</span>
+      </div>
+      <div class="navButton" id="boardsButton">
+        <span>View Boards</span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="viewDash">
+      <div id="actionItems">
+        <div class="dashHeader">
+          <h1>Action Items</h1>
+          <h4 id="actionItemsShowHide">show&sol;hide</h4>
+        </div>
+        <div class="container" id="actionItemsContainer">
+          <div class="actionsCategory" id="pastDue">
+            <div class="catHeader">
+              <h3>Past Due</h3>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this is a past due card</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this is a past due card</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this is a past due card</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+          </div>
+          <div class="actionsCategory" id="dueToday">
+            <div class="catHeader">
+              <h3>Due Today</h3>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this card is due today</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this card is due today</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this card is due today</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this card is due today</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>this card is due today</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+          </div>
+          <div class="actionsCategory" id="dueTomorrow">
+            <div class="catHeader">
+              <h3>Due Tomorrow</h3>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>card due tomorrow</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+            <div class="catCard">
+              <div class="cardDesc">
+                <span>card due tomorrow</span>
+              </div>
+              <div class="cardSrc">
+                <span>Board &ndash; List</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cardsView">
+        <div class="dashHeader">
+          <h1>Some sort of labels view here maybe&quest;</h1>
+          <h4>show&sol;hide</h4>
+        </div>
+      </div>
+    </section>
+    <section id="viewBoards">
+      <div id="58cafe212b8b96793b58dcea" class="board">
+        <h1>CS + WD</h1>
+        <div class="board-lists">
+          <div class="list" id="58cafe212b8b96793b58dceb">
+            <h2>Git(Hub)</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe212b8b96793b58dcf9">
+                <p>Try Git</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dcfd">
+                <p>Git - The Simple Guide</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dcff">
+                <p>GitHub Training and Guides</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd01">
+                <p>GitHub Hello World</p>
+              </div><div class="card" id="58cafe212b8b96793b58dd03">
+                <p>Git Immersion</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd05">
+                <p>How to Use Git and GitHub</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcec">
+            <h2>1. Getting Started</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe212b8b96793b58dd07">
+                <p>YDKJS: Up &amp; Going</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd09">
+                <p>YDKJS: Scope &amp; Closures</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd0b">
+                <p>YDKJS: this &amp; Object Prototypes</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd0d">
+                <p>Learn to Code HTML &amp; CSS</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd0f">
+                <p>Clone this Online Resume</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd11">
+                <p>CS50 - Introduction to Computer Science</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd1b">
+                <p>YDKJS: Types &amp; Grammar</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd1d">
+                <p>YDKJS: Async &amp; Performance</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd1f">
+                <p>YDKJS: ES6 &amp; Beyond</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd21">
+                <p>FreeCodeCamp Portfolio</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd22">
+                <p>Project Specification Documents</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd24">
+                <p>Effective Thinking Through Mathematics</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd2e">
+                <p>Setting Up ES6</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd30">
+                <p>JavaScript Allongé, the "Six" Edition</p>
+              </div>
+              <div class="card" id="58cafe212b8b96793b58dd32">
+                <p>Getting Sassy with Sass</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd34">
+                <p>Online Towers of Hanoi Solver</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dced">
+            <h2>2. Develop more expertise</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58dd35">
+                <p>How to Code: Systematic Program Design - Part 1</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd37">
+                <p>How to Code: Systematic Program Design - Part 2</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd39">
+                <p>How to Code: Systematic Program Design - Part 3</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd3b">
+                <p>DOM Enlightenment</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd3d">
+                <p>FreeCodeCamp Simon Game</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd3e">
+                <p>CodinGame Classic Puzzles - Easy</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd40">
+                <p>Introduction to MongoDB Using the MEAN Stack</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd42">
+                <p>FreeCodeCamp Back-end Certification</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd43">
+                <p>Calculus One</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd45">
+                <p>JavaScript Design Patterns</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd47">
+                <p>Clone this Landing Page</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd49">
+                <p>Mathematics for Computer Science</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd4b">
+                <p>Algorithms and Flowcharts</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd4d">
+                <p>Clone this Admin template</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd4f">
+                <p>Think Java: How to Think Like a Computer Scientist</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd55">
+                <p>Open Data Structures</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd51">
+                <p>Algorithms - Part 1</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd53">
+                <p>Algorithms - Part 2</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd57">
+                <p>Code Jam Qualification Round 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd59">
+                <p>Clone Front Page</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd5b">
+                <p>UX Design for Mobile Developers</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd5d">
+                <p>Android Development for Beginners</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd5f">
+                <p>FreeCodeCamp Pomodoro Project as Android app</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcee">
+            <h2>3. Add more rigor</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58dd60">
+                <p>Professor Frisby's Mostly Adequate Guide to Functional Programming</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd62">
+                <p>Software Testing</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd65">
+                <p>Software Debugging</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd6a">
+                <p>Clone the Netflix interface</p>
+              </div><div class="card" id="58cafe222b8b96793b58dd6b">
+                <p>Calculus Two: Sequences and Series</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd6e">
+                <p>CodinGame Classic Puzzles - Medium</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd70">
+                <p>Software Architecture and Design</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd72">
+                <p>Code Jam Round 1A 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd74">
+                <p>JavaScript Spessore</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd76">
+                <p>Clone this blog template</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd78">
+                <p>Databases</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd7a">
+                <p>Agile Software Development</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd7c">
+                <p>ES6 Katas</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd7e">
+                <p>Introduction to Cloud Computing</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd80">
+                <p>Code Jam Round 1B 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd82">
+                <p>Clone Facebook</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd83">
+                <p>Intro to Theoretical Computer Science</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd85">
+                <p>Code Jam Round 1C 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd87">
+                <p>Introduction to Probability - The Science of Uncertainty</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd89">
+                <p>Write your own 12-column-based grid layout</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd8b">
+                <p>Linear Algebra - Foundations to Frontiers</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd8d">
+                <p>CodinGame Classic Puzzles - Hard</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd8f">
+                <p>Cryptography I</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd91">
+                <p>Code Jam Round 2 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd93">
+                <p>Cryptography II</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd95">
+                <p>Clone Twitter</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcef">
+            <h2>4. Polish the rough edges</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58ddae">
+                <p>Computer Architecture</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddb0">
+                <p>Code Jam Round 3 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddb2">
+                <p>Introduction to Cyber Security</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddb4">
+                <p>CodinGame Classic Puzzles - Very Hard</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddb6">
+                <p>Computer Graphics</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddb8">
+                <p>Artificial Intelligence</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddba">
+                <p>Code Jam World Finals 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddbc">
+                <p>Machine Learning</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddbe">
+                <p>Create a game!</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddbf">
+                <p>Operating Systems and System Programming</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddc1">
+                <p>Create a node module that will convert markdown to properly formatted HTML</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddc2">
+                <p>Compilers</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddc4">
+                <p>Introduction to Natural Language Processing</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddc6">
+                <p>Clone Learn Harmony</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddc8">
+                <p>Computer Networks</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddca">
+                <p>Parallel Computer Architecture and Programming</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddcc">
+                <p>Distributed Google Code Jam 2015</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddce">
+                <p>Clone Slack</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddcf">
+                <p>Create an npm module that bootstraps a fullstack app</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddd0">
+                <p>All rounds of Google Code Jam 2016</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddd2">
+                <p>Extend your CSS grid framework to include the CSS and JavaScript required to implement 5 to 10 material design components</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcf0">
+            <h2>"Electives"</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58ddd7">
+                <p>NOTE: Items listed here are not part of the original list.</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddd5">
+                <p>Introduction to User Experience</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddda">
+                <p>Introduction to Linux</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcf1">
+            <h2>Bookmarks I should have</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58dd9d">
+                <p>surge.sh</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd9f">
+                <p>MDN</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dda1">
+                <p>Heroku</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dda3">
+                <p>Firebase or mLab</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dda6">
+                <p>GitHub</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dda8">
+                <p>Material Design</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddaa">
+                <p>Material Palette</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddac">
+                <p>Wirify</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcf2">
+            <h2>Things to keep in mind</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58dd96">
+                <p>Have git commits every week, most of the days</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd97">
+                <p>Be active in the Chingu cohorts</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd98">
+                <p>Try to pick one to two other languages to use regularly for solving algorithms and implementing projects in addition to JavaScript.</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd99">
+                <p>For each item you should...</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd9a">
+                <p>For four projects...</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd9b">
+                <p>Once per month, do at least two of the following...</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58dd9c">
+                <p>If you need a breather from an item, do one of these, then get back to it...</p>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="58cafe212b8b96793b58dcf3">
+            <h2>Stuff</h2>
+            <div class="list-cards">
+              <div class="card" id="58cafe222b8b96793b58ddd3">
+                <p>Original post</p>
+              </div>
+              <div class="card" id="58cafe222b8b96793b58ddd8">
+                <p>Notes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

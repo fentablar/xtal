@@ -1,0 +1,149 @@
+* { box-sizing: border-box }
+
+body {
+  background-color: gainsboro;
+  color: #202020;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+header {
+  border-bottom: 1px solid #202020;
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.navButton {
+  margin: 0 50px 20px;
+  padding: 5px;
+  border: 1px solid #202020;
+  border-radius: 3px;
+}
+
+.navButton:hover, .navActive {
+  background-color: #202020;
+  color: gainsboro;
+  cursor: pointer;
+}
+
+#viewBoards {
+  display: none;
+}
+
+.dashHeader {
+  margin: 10px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashHeader > h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 3px;
+}
+
+.dashHeader > h4 {
+  padding: 3px;
+  font-size: 0.8rem;
+}
+
+#actionItems, #cardsView {
+  margin: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid #202020;
+}
+
+#actionItemsContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.actionsCategory {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.catHeader {
+  margin: 10px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+.catCard {
+  padding: 5px;
+  border-bottom: 1px solid #202020;
+}
+
+.catCard:last-child {
+  border-bottom: none;
+}
+
+.cardDesc {
+  margin-bottom: 3px;
+}
+
+.cardSrc {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.board {
+  background-color: #202020;
+  color: gainsboro;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+
+.board > h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 3px 0;
+}
+
+.board-lists {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.list {
+  background-color: gainsboro;
+  color: #202020;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  border: 1px solid #202020;
+  border-radius: 5px;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.list > h2 {
+  font-weight: bold;
+}
+
+.list-cards {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 5px 0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.card {
+  background-color: snow;
+  color: #101010;
+  padding: 7px;
+  margin: 5px 0;
+  border-radius: 3px;
+}
