@@ -1,3 +1,16 @@
+var trelloAuthFail = function() {
+  console.log("Trello auth FAIL");
+  $("main").append("<div class='board'><h1>Trello authorization error</h1>" +
+  "<br><p>Trello did not authorize&period;&ensp;" +
+  "Please ensure you click &quot;Allow&quot; so the app can connect to " +
+  "Trello&semi; you may need to clear your browser cache before " +
+  "attempting to reauthenticate&period;");
+}
+
+var trelloAuthSuccess = function() {
+  console.log("Trello auth SUCCESS");
+};
+
 $(function() {
   $(".navButton").on("click", function() {
     $(".navButton").removeClass("navActive");

@@ -30,10 +30,6 @@ nav {
   cursor: pointer;
 }
 
-.hideMe {
-  display: none;
-}
-
 #viewBoards {
   display: none;
 }
@@ -65,22 +61,30 @@ nav {
   border-bottom: 1px solid #202020;
 }
 
-#actionItemsContainer {
+#actionItems > .dashViewContainer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
 }
 
 .actionsCategory {
-  max-height: 500px;
-  overflow-y: auto;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 10px;
 }
 
-.catHeader {
+.categoryHeader {
   margin: 10px;
   font-weight: bold;
   font-style: italic;
   text-align: center;
+}
+
+.cardContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .catCard {
@@ -98,6 +102,7 @@ nav {
 
 .cardSrc {
   font-size: 0.8rem;
+  font-style: italic;
   text-align: center;
 }
 
@@ -152,4 +157,9 @@ nav {
   padding: 7px;
   margin: 5px 0;
   border-radius: 3px;
+}
+
+/* keep this at the bottom */
+.hideMe {
+  display: none;
 }
