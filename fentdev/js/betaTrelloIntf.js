@@ -1,6 +1,6 @@
 var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
-  $("main").append("<div class='board'><h1>Trello authorization error</h1>" +
+  $("#viewBoards").append("<div class='board'><h1>Trello authorization error</h1>" +
   "<br><p>Trello did not authorize&period;&ensp;" +
   "Please ensure you click &quot;Allow&quot; so the app can connect to " +
   "Trello&semi; you may need to clear your browser cache before " +
@@ -10,6 +10,20 @@ var trelloAuthFail = function() {
 var trelloAuthSuccess = function() {
   console.log("Trello auth SUCCESS");
 };
+
+function authorizeTrello() {
+  Trello.authorize({
+    type: "popup",
+    name: "xtal trello interface",
+    scope: {
+      read: "true",
+      write: "true"
+    },
+    expiration: "never",
+    success: trelloAuthSuccess,
+    error: trelloAuthFail
+  });
+}
 
 $(function() {
   $(".navButton").on("click", function() {
