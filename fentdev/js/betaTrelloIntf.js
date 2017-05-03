@@ -26,6 +26,8 @@ function authorizeTrello() {
 }
 
 $(function() {
+  authorizeTrello();
+
   $(".navButton").on("click", function() {
     $(".navButton").removeClass("navActive");
     $(this).addClass("navActive");
