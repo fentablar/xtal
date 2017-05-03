@@ -7,10 +7,6 @@ body {
   padding: 20px;
 }
 
-header {
-  border-bottom: 1px solid #202020;
-}
-
 nav {
   display: flex;
   flex-flow: row wrap;
@@ -55,13 +51,17 @@ nav {
 
 .showHide {cursor: pointer}
 
-#actionItems, #cardsView {
+.dashSection {
   margin: 10px;
   padding: 20px 0;
-  border-bottom: 1px solid #202020;
+  border-top: 1px solid #202020;
 }
 
-#actionItems > .dashViewContainer {
+.dashViewContainer {
+  overflow-x: auto;
+}
+
+#actionItemsContainer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -90,6 +90,8 @@ nav {
 .catCard {
   padding: 5px;
   border-bottom: 1px solid #202020;
+  font-size: 0.9rem;
+  line-height: 1.1;
 }
 
 .catCard:last-child {
@@ -104,6 +106,27 @@ nav {
   font-size: 0.8rem;
   font-style: italic;
   text-align: center;
+}
+
+#recentActivityContainer {
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 500px;
+}
+
+.recentActivityItem {
+  min-width: 300px;
+  max-width: 300px;
+  padding: 5px;
+  margin: 0 20px;
+  border-top: 1px solid #202020;
+  font-size: 0.8rem;
+  line-height: 1.1;
+}
+
+.recentActivitySrc {
+  font-style: italic;
+  font-weight: bold;
 }
 
 .board {

@@ -12,6 +12,9 @@ $(function() {
     }
   });
   $("#actionItemsShowHide").on("click", function() {
-    $(".actionsCategory").toggleClass("hideMe");
+    $("#actionItems > .dashViewContainer").toggleClass("hideMe");
+  });
+  $("#recentActivityShowHide").on("click", function() {
+    $("#recentActivity > .dashViewContainer").toggleClass("hideMe");
   });
 });
