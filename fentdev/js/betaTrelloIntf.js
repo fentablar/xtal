@@ -65,6 +65,7 @@ function reapMyBoards() {
     var tmpArr = [];
     Trello.get("members/me/boards", function(boardData) {
       for (var bd = 0; bd < boardData.length; bd++) {
+        console.log(bd);
         boardArr.push(boardData[bd]);
         $("#viewBoards").append("<div class='board' id='" + boardArr[bd].id +
         "'><h1>" + boardArr[bd].name + "</h1><div class='board-lists'></div></div>");
@@ -77,9 +78,10 @@ function reapMyBoards() {
   .then(function() {
     var dfdList = $.Deferred();
     var tmpArr = [];
-    for (var bd = 0; bd < boardArr.length; bd++) {
-      Trello.get("boards/" + boardArr[bd].id + "/lists", function(listData) {
+    for (var bld = 0; bld < boardArr.length; bld++) {
+      Trello.get("boards/" + boardArr[bld].id + "/lists", function(listData) {
         for (var ld = 0; ld < listData.length; ld++) {
+          console.log(bld + "-" + ld);
           listArr.push(listData[ld]);
           $("#" + listArr[ld].idBoard + " > .board-lists").append("<div class='list' id='" +
           listArr[ld].id + "'><h2>" + listArr[ld].name +
@@ -94,9 +96,10 @@ function reapMyBoards() {
   .then(function() {
     var dfdCard = $.Deferred();
     var tmpArr = [];
-    for (var bd = 0; bd < boardArr.length; bd++) {
-      Trello.get("boards/" + boardArr[bd].id + "/cards", function(cardData) {
+    for (var bcd = 0; bcd < boardArr.length; bcd++) {
+      Trello.get("boards/" + boardArr[bcd].id + "/cards", function(cardData) {
         for (var cd = 0; cd < cardData.length; cd++) {
+          console.log(bcd + "-" + cd);
           cardArr.push(cardData[cd]);
           $("#" + cardArr[cd].idList + " > .list-cards").append("<div class='card' id='" +
           cardArr[cd].id + "'><p>" + cardArr[cd].name + "</p></div>");
