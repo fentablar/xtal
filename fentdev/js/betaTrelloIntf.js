@@ -102,7 +102,7 @@ function reapMyBoards() {
   })
   .then(function() {
     var dfdBoardHtml = $.Deferred();
-    for (var bd = 0; bd < boardArr.length; i++) {
+    for (var bd = 0; bd < boardArr.length; bd++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bd].id +
       "'><h1>" + boardArr[bd].name + "</h1><div class='board-lists'></div></div>");
     }
