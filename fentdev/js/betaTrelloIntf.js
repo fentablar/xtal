@@ -106,27 +106,17 @@ function reapMyBoards() {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bd].id +
       "'><h1>" + boardArr[bd].name + "</h1><div class='board-lists'></div></div>");
     }
-    dfdBoardHtml.resolve();
-    return dfdBoardHtml.promise();
-  })
-  .then(function() {
-    var dfdListHtml = $.Deferred();
     for (var ld = 0; ld < listArr.length; ld++) {
       $("#" + listArr[ld].idBoard + " > .board-lists").append("<div class='list' id='" +
       listArr[ld].id + "'><h2>" + listArr[ld].name +
       "</h2><div class='list-cards'></div></div>");
     }
-    dfdListHtml.resolve();
-    return dfdListHtml.promise();
-  })
-  .then(function() {
-    var dfdCardHtml = $.Deferred();
     for (var cd = 0; cd < cardArr.length; cd++) {
       $("#" + cardArr[cd].idList + " > .list-cards").append("<div class='card' id='" +
       cardArr[cd].id + "'><p>" + cardArr[cd].name + "</p></div>");
     }
-    dfdCardHtml.resolve();
-    return dfdCardHtml.promise();
+    dfdBoardHtml.resolve();
+    return dfdBoardHtml.promise();
   })
   .done(function() {
     console.log(me);
