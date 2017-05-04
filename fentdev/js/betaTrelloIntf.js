@@ -128,5 +128,10 @@ function reapMyBoards() {
     dfdCardHtml.resolve();
     return dfdCardHtml.promise();
   })
-  .done(function() { console.log("done"); });
+  .done(function() {
+    console.log(me);
+    console.log(boardArr);
+    console.log(listArr);
+    console.log(cardArr);
+  });
 }
