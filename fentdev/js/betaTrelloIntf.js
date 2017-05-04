@@ -9,6 +9,8 @@ var trelloAuthFail = function() {
 
 var trelloAuthSuccess = function() {
   console.log("Trello auth SUCCESS");
+  var me, myBoardsArr = [], myBoardsListsArr = [], myBoardsCardsArr = [];
+  
   $.when(getMe(me))
   .then(getMyBoards(myBoardsArr))
   .then(getMyBoardsLists(myBoardsArr, myBoardsListsArr))
@@ -19,7 +21,7 @@ var trelloAuthSuccess = function() {
 };
 
 $(function() {
-  var me, myBoardsArr = [], myBoardsListsArr = [], myBoardsCardsArr = [];
+
   authorizeTrello();
 
   $(".navButton").on("click", function() {
