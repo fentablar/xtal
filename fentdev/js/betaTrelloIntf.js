@@ -120,7 +120,7 @@ function reapMyBoards() {
     return dfdListHtml.promise();
   })
   .then(function() {
-    var dfdCards = $.Deferred();
+    var dfdCardHtml = $.Deferred();
     for (var cd = 0; cd < cardArr.length; cd++) {
       $("#" + cardArr[cd].idList + " > .list-cards").append("<div class='card' id='" +
       cardArr[cd].id + "'><p>" + cardArr[cd].name + "</p></div>");
