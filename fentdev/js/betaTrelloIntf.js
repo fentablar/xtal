@@ -66,6 +66,8 @@ function reapMyBoards() {
     Trello.get("members/me/boards", function(boardData) {
       for (var bd = 0; bd < boardData.length; bd++) {
         boardArr.push(boardData[bd]);
+        $("#viewBoards").append("<div class='board' id='" + boardArr[bd].id +
+        "'><h1>" + boardArr[bd].name + "</h1><div class='board-lists'></div></div>");
         tmpArr.push(bd);
       }
       $.when.apply($, tmpArr).then(function() { dfdBoard.resolve(); });
@@ -79,6 +81,9 @@ function reapMyBoards() {
       Trello.get("boards/" + boardArr[bd].id + "/lists", function(listData) {
         for (var ld = 0; ld < listData.length; ld++) {
           listArr.push(listData[ld]);
+          $("#" + listArr[ld].idBoard + " > .board-lists").append("<div class='list' id='" +
+          listArr[ld].id + "'><h2>" + listArr[ld].name +
+          "</h2><div class='list-cards'></div></div>");
           tmpArr.push(ld);
         }
       });
@@ -93,30 +98,14 @@ function reapMyBoards() {
       Trello.get("boards/" + boardArr[bd].id + "/cards", function(cardData) {
         for (var cd = 0; cd < cardData.length; cd++) {
           cardArr.push(cardData[cd]);
+          $("#" + cardArr[cd].idList + " > .list-cards").append("<div class='card' id='" +
+          cardArr[cd].id + "'><p>" + cardArr[cd].name + "</p></div>");
           tmpArr.push(cd);
         }
       });
     }
     $.when.apply($, tmpArr).then(function() { dfdCard.resolve(); });
     return dfdCard.promise();
-  })
-  .then(function() {
-    var dfdBoardHtml = $.Deferred();
-    for (var bd = 0; bd < boardArr.length; bd++) {
-      $("#viewBoards").append("<div class='board' id='" + boardArr[bd].id +
-      "'><h1>" + boardArr[bd].name + "</h1><div class='board-lists'></div></div>");
-    }
-    for (var ld = 0; ld < listArr.length; ld++) {
-      $("#" + listArr[ld].idBoard + " > .board-lists").append("<div class='list' id='" +
-      listArr[ld].id + "'><h2>" + listArr[ld].name +
-      "</h2><div class='list-cards'></div></div>");
-    }
-    for (var cd = 0; cd < cardArr.length; cd++) {
-      $("#" + cardArr[cd].idList + " > .list-cards").append("<div class='card' id='" +
-      cardArr[cd].id + "'><p>" + cardArr[cd].name + "</p></div>");
-    }
-    dfdBoardHtml.resolve();
-    return dfdBoardHtml.promise();
   })
   .done(function() {
     console.log(me);
