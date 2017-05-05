@@ -73,26 +73,26 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
       if (bd + 1 === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
     }
   }).done(function(bdata) {
-    var bl, bllen = bdata.length, ltotal = 0;
+    var bl, bllen = bdata.length, bldone = 0;
     for (bl = 0; bl < bllen; bl++) {
+      if (bl + 1 === bllen) { bldone += 1 }
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
         var ld, ldlen = ldata.length;
-        ltotal += ldlen;
         for (ld = 0; ld < ldlen; ld++) {
           larr.push(ldata[ld]);
-          if (larr.length === ltotal) { console.log("list arr resolve"); dfdListArr.resolve(); }
+          if (bldone === 1 && ld + 1 === ldlen) { console.log("list arr resolve"); dfdListArr.resolve(); }
         }
       });
     }
   }).done(function(bdata) {
-    var bc, bclen = bdata.length, ctotal = 0;
+    var bc, bclen = bdata.length, bcdone = 0;
     for (bc = 0; bc < bclen; bc++) {
+      if (bc + 1 === bclen) { bcdone += 1 }
       Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
         var cd, cdlen = cdata.length;
-        ctotal += cdlen;
         for (cd = 0; cd < cdlen; cd++) {
           carr.push(cdata[cd]);
-          if (carr.length === ctotal) { console.log("card arr resolve"); dfdCardArr.resolve(); }
+          if (bcdone === 1 && cd + 1 === cdlen) { console.log("card arr resolve"); dfdCardArr.resolve(); }
         }
       });
     }
