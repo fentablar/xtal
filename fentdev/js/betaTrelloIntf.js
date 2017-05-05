@@ -67,16 +67,11 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
   .done(function(bdata) {
     var bdLen = bdata.length;
     for (var bd = 0; bd < bdLen; bd++) {
-      $("#viewBoards").append("<div class='board' id='" + bdata[bd].id +
-      "'><h1>" + bdata[bd].name + "</h1><div class='board-lists'></div></div>");
       bArr.push(bdata[bd]);
       Trello.get("boards/" + bdata[bd].id + "/lists")
       .done(function(ldata) {
         var ldLen = ldata.length;
         for (var ld = 0; ld < ldLen; ld++) {
-          $("#" + ldata[ld].idBoard + " > .board-lists")
-          .append("<div class='list' id='" + ldata[ld].id + "'><h2>" +
-          ldata[ld].name + "</h2><div class='list-cards'></div></div>");
           lArr.push(ldata[ld]);
         }
       });
@@ -84,9 +79,6 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
       .done(function(cdata) {
         var cdLen = cdata.length;
         for (var cd = 0; cd < cdLen; cd++) {
-          $("#" + cdata[cd].idList + " > .list-cards")
-          .append("<div class='card' id='" + cdata[cd].id + "'><p>" +
-          "</p></div>");
           cArr.push(cdata[cd]);
         }
       });
