@@ -11,7 +11,7 @@ var trelloAuthFail = function() {
 
 var trelloAuthSuccess = function() {
   console.log("Trello auth SUCCESS");
-  reapMyBoards();
+  reapMyBoards(me, teamArr, boardArr, listArr, cardArr);
 };
 
 $(function() {
