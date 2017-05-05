@@ -70,7 +70,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     var bd, bdlen = bdata.length;
     for (bd = 0; bd < bdlen; bd++) {
       barr.push(bdata[bd]);
-      if (bd + 1 === bdlen) { dfdBoardArr.resolve(); }
+      if (bd + 1 === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
     }
   }).done(function(bdata) {
     var bl, bllen = bdata.length, ltotal = 0;
@@ -80,7 +80,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
         ltotal += ldlen;
         for (ld = 0; ld < ldlen; ld++) {
           larr.push(ldata[ld]);
-          if (larr.length === ltotal) { dfdListArr.resolve(); }
+          if (larr.length === ltotal) { console.log("list arr resolve"); dfdListArr.resolve(); }
         }
       });
     }
@@ -92,7 +92,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
         ctotal += cdlen;
         for (cd = 0; cd < cdlen; cd++) {
           carr.push(cdata[cd]);
-          if (carr.length === ctotal) { dfdCardArr.resolve(); }
+          if (carr.length === ctotal) { console.log("card arr resolve"); dfdCardArr.resolve(); }
         }
       });
     }
@@ -103,7 +103,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + barr[bh].id +
       "'><h1>" + barr[bh].name + "</h1><div class='board-lists'></div></div>");
-      if (bh + 1 === bhlen) { dfdBoardHtml.resolve(); }
+      if (bh + 1 === bhlen) { console.log("board html resolve"); dfdBoardHtml.resolve(); }
     }
   });
 
@@ -113,7 +113,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
       $("#" + larr[lh].idBoard + " > .board-lists")
       .append("<div class='list' id='" + larr[lh].id + "'><h2>" +
       larr[lh].name + "</h2><div class='list-cards'></div></div>");
-      if (lh + 1 === lhlen) { dfdListHtml.resolve(); }
+      if (lh + 1 === lhlen) { console.log("list html resolve"); dfdListHtml.resolve(); }
     }
   });
 
@@ -123,7 +123,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
       $("#" + carr[ch].idList + " > .list-cards")
       .append("<div class='card' id='" + carr[ch].id + "'><p>" +
       carr[ch].name + "</p></div>");
-      if (ch + 1 === chlen) { dfdCardHtml.resolve(); }
+      if (ch + 1 === chlen) { console.log("card html resolve"); dfdCardHtml.resolve(); }
     }
   });
 }
