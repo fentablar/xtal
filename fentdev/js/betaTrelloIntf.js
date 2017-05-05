@@ -76,10 +76,11 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     var bl, bllen = bdata.length;
     for (bl = 0; bl < bllen; bl++) {
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
-        var ld, ldlen = ldata.length;
+        var ld, ldlen = ldata.length, ltotal = 0;
         for (ld = 0; ld < ldlen; ld++) {
+          ltotal += ldlen;
           larr.push(ldata[ld]);
-          if (bl + 1 === bllen && ld + 1 === ldlen) { dfdListArr.resolve(); }
+          if (larr.length === ltotal) { dfdListArr.resolve(); }
         }
       });
     }
@@ -87,10 +88,11 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     var bc, bclen = bdata.length;
     for (bc = 0; bc < bclen; bc++) {
       Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
-        var cd, cdlen = cdata.length;
+        var cd, cdlen = cdata.length, ctotal = 0;
         for (cd = 0; cd < cdlen; cd++) {
+          ctotal += cdlen;
           carr.push(cdata[cd]);
-          if (bc + 1 === bclen && cd + 1 === cdlen) { dfdCardArr.resolve(); }
+          if (carr.length === ctotal) { dfdCardArr.resolve(); }
         }
       });
     }
