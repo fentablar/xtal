@@ -77,8 +77,8 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     for (bl = 0; bl < bllen; bl++) {
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
         var ld, ldlen = ldata.length;
+        ltotal += ldlen;
         for (ld = 0; ld < ldlen; ld++) {
-          ltotal += ldlen;
           larr.push(ldata[ld]);
           if (larr.length === ltotal) { dfdListArr.resolve(); }
         }
@@ -89,8 +89,8 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     for (bc = 0; bc < bclen; bc++) {
       Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
         var cd, cdlen = cdata.length;
+        ctotal += cdlen;
         for (cd = 0; cd < cdlen; cd++) {
-          ctotal += cdlen;
           carr.push(cdata[cd]);
           if (carr.length === ctotal) { dfdCardArr.resolve(); }
         }
