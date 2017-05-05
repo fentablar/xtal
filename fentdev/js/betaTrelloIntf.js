@@ -86,7 +86,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
   }, function(bdata) {
     var bc, bclen = bdata.length;
     for (bc = 0; bc < bclen; bc++) {
-      Trello.get("boards/" + bdata[bc] + "/cards").done(function(cdata) {
+      Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
         var cd, cdlen = cdata.length;
         for (cd = 0; cd < cdlen; cd++) {
           carr.push(cdata[cd]);
