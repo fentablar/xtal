@@ -97,7 +97,7 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
       .append("<div class='card' id='" + cArr[ca].id + "'><p>" +
       cArr[ca].name + "</p></div>");
     }
-  }, 1500);
+  }, 500);
 
 /*
   $.when.apply($, cardArr).done(function() {
