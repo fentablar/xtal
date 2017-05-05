@@ -50,64 +50,78 @@ function authorizeTrello() {
   });
 }
 
-function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
+function reapMyBoards(meObj, tarr, barr, larr, carr) {
+  var dfdBoardArr = $.Deferred(), dfdBoardHtml = $.Deferred();
+  var dfdListArr = $.Deferred(), dfdListHtml = $.Deferred();
+  var dfdCardArr = $.Deferred(), dfdCardHtml = $.Deferred();
 
   Trello.get("members/me").done(function(mdata) {
     Object.assign(meObj, mdata);
   });
 
   Trello.get("members/me/organizations").done(function(tdata) {
-    var tdLen = tdata.length;
-    for (var td = 0; td < tdLen; td++) {
-      tArr.push(tdata[td]);
+    var tdlen = tdata.length;
+    for (var td = 0; td < tdlen; td++) {
+      tarr.push(tdata[td]);
     }
   });
 
-  Trello.get("members/me/boards")
-  .done(function(bdata) {
-    var bdLen = bdata.length;
-    for (var bd = 0; bd < bdLen; bd++) {
-      $("#viewBoards").append("<div class='board' id='" + bdata[bd].id +
-      "'><h1>" + bdata[bd].name + "</h1><div class='board-lists'></div></div>");
-      bArr.push(bdata[bd]);
-      Trello.get("boards/" + bdata[bd].id + "/lists")
-      .done(function(ldata) {
-        var ldLen = ldata.length;
-        for (var ld = 0; ld < ldLen; ld++) {
-          $("#" + ldata[ld].idBoard + " > .board-lists")
-          .append("<div class='list' id='" + ldata[ld].id + "'><h2>" +
-          ldata[ld].name + "</h2><div class='list-cards'></div></div>");
-          lArr.push(ldata[ld]);
-        }
-      });
-      Trello.get("boards/" + bdata[bd].id + "/cards")
-      .done(function(cdata) {
-        var cdLen = cdata.length;
-        for (var cd = 0; cd < cdLen; cd++) {
-          cArr.push(cdata[cd]);
+  Trello.get("members/me/boards").done(function(bdata) {
+    var bd, bdlen = bdata.length;
+    for (bd = 0; bd < bdlen; bd++) {
+      barr.push(bdata[bd]);
+      if (bd + 1 === bdlen) { dfdBoardArr.resolve(); }
+    }
+  }, function(bdata) {
+    var bl, bllen = bdata.length;
+    for (bl = 0; bl < bllen; bc++) {
+      Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
+        var ld, ldlen = ldata.length;
+        for (ld = 0; ld < ldlen; ld++) {
+          larr.push(ldata[ld]);
+          if (bl + 1 === bllen && ld + 1 === ldlen) { dfdListArr.resolve(); }
         }
       });
     }
-  });
-
-  setTimeout(function() {
-    var caLen = cArr.length;
-    for (var ca = 0; ca < caLen; ca++) {
-      $("#" + cArr[ca].idList + " > .list-cards")
-      .append("<div class='card' id='" + cArr[ca].id + "'><p>" +
-      cArr[ca].name + "</p></div>");
-    }
-  }, 1000);
-
-/*
-  $.when.apply($, cardArr).done(function() {
-    var caLen = cardArr.length;
-    for (var ca = 0; ca < caLen; ca++) {
-      $("#" + cardArr[ca].idList + " > .list-cards")
-      .append("<div class='card' id='" + cardArr[ca].id + "'><p>" +
-      "</p></div>");
+  }, function(bdata) {
+    var bc, bclen = bdata.length;
+    for (bc = 0; bc < bclen; bc++) {
+      Trello.get("boards/" + bdata[bc] + "/cards").done(function(cdata) {
+        var cd, cdlen = cdata.length;
+        for (cd = 0; cd < cdlen; cd++) {
+          carr.push(cdata[cd]);
+          if (bc + 1 === bclen && cd + 1 === cdlen) { dfdCardArr.resolve(); }
+        }
+      });
     }
   });
-*/
 
+  $.when(dfdBoarArr).done(function() {
+    var bh, bhlen = barr.length;
+    for (bh = 0; bh < bhlen; bh++) {
+      $("#viewBoards").append("<div class='board' id='" + barr[bh].id +
+      "'><h1>" + barr[bh].name + "</h1><div class='board-lists'></div></div>");
+      if (bh + 1 === bhlen) { dfdBoardHtml.resolve(); }
+    }
+  });
+
+  $.when(dfdBoardHtml, dfdListArr).done(function() {
+    var lh, lhlen = larr.length;
+    for (lh = 0; lh < lhlen; lh++) {
+      $("#" + larr[lh].idBoard + " > .board-lists")
+      .append("<div class='list' id='" + larr[lh].id + "'><h2>" +
+      larr[lh].name + "</h2><div class='list-cards'></div></div>");
+      if (lh + 1 === lhlen) { dfdListHtml.resolve(); }
+    }
+  });
+
+  $.when(dfdListHtml, dfdCardArr).done(function() {
+    var ch, chlen = carr.length;
+    for (ch = 0; ch < chlen; ch++) {
+      $("#" + carr[ch].idList + " > .list-cards")
+      .append("<div class='card' id='" + carr[ch].id + "'><p>" +
+      carr[ch].name + "</p></div>");
+      if (ch + 1 === chlen) { dfdCardHtml.resolve(); }
+    }
+  });
 }
