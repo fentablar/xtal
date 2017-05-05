@@ -74,7 +74,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     }
   }, function(bdata) {
     var bl, bllen = bdata.length;
-    for (bl = 0; bl < bllen; bc++) {
+    for (bl = 0; bl < bllen; bl++) {
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
         var ld, ldlen = ldata.length;
         for (ld = 0; ld < ldlen; ld++) {
@@ -96,7 +96,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
     }
   });
 
-  $.when(dfdBoarArr).done(function() {
+  $.when(dfdBoardArr).done(function() {
     var bh, bhlen = barr.length;
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + barr[bh].id +
