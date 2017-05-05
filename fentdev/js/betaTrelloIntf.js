@@ -1,4 +1,4 @@
-var me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
+
 
 var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
@@ -50,49 +50,52 @@ function authorizeTrello() {
   });
 }
 
-function reapMyBoards(meObj, tarr, barr, larr, carr) {
+function reapMyBoards() {
+  var me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
   var dfdBoardArr = $.Deferred(), dfdBoardHtml = $.Deferred();
   var dfdListArr = $.Deferred(), dfdListHtml = $.Deferred();
   var dfdCardArr = $.Deferred(), dfdCardHtml = $.Deferred();
 
   Trello.get("members/me").done(function(mdata) {
-    Object.assign(meObj, mdata);
+    Object.assign(me, mdata);
   });
 
   Trello.get("members/me/organizations").done(function(tdata) {
     var tdlen = tdata.length;
     for (var td = 0; td < tdlen; td++) {
-      tarr.push(tdata[td]);
+      teamArr.push(tdata[td]);
     }
   });
 
   Trello.get("members/me/boards").done(function(bdata) {
     var bd, bdlen = bdata.length;
     for (bd = 0; bd < bdlen; bd++) {
-      barr.push(bdata[bd]);
+      boardArr.push(bdata[bd]);
       if (bd + 1 === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
     }
   }).done(function(bdata) {
     var bl, bllen = bdata.length, bldone = 0;
     for (bl = 0; bl < bllen; bl++) {
-      if (bl + 1 === bllen) { bldone += 1 }
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
-        var ld, ldlen = ldata.length;
+        var ld, ldlen = ldata.length, lddone = 0;
+        bldone += 1;
         for (ld = 0; ld < ldlen; ld++) {
-          larr.push(ldata[ld]);
-          if (bldone === 1 && ld + 1 === ldlen) { console.log("list arr resolve"); dfdListArr.resolve(); }
+          listArr.push(ldata[ld]);
+          lddone += 1;
+          if (bldone === bllen && lddone === ldlen) { console.log("list arr resolve"); dfdListArr.resolve(); }
         }
       });
     }
   }).done(function(bdata) {
     var bc, bclen = bdata.length, bcdone = 0;
     for (bc = 0; bc < bclen; bc++) {
-      if (bc + 1 === bclen) { bcdone += 1 }
       Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
-        var cd, cdlen = cdata.length;
+        var cd, cdlen = cdata.length, cddone = 0;
+        bcdone += 1;
         for (cd = 0; cd < cdlen; cd++) {
-          carr.push(cdata[cd]);
-          if (bcdone === 1 && cd + 1 === cdlen) { console.log("card arr resolve"); dfdCardArr.resolve(); }
+          cardArr.push(cdata[cd]);
+          cddone += 1;
+          if (bcdone === bclen && cddone === cdlen) { console.log("card arr resolve"); dfdCardArr.resolve(); }
         }
       });
     }
