@@ -1,3 +1,5 @@
+var me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
+
 var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
   $("#viewBoards").append("<div class='board'><h1>Trello authorization error</h1>" +
@@ -48,17 +50,16 @@ function authorizeTrello() {
   });
 }
 
-function reapMyBoards() {
-  var me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
+function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
 
-  Trello.get("members/me").done(function(meData) {
-    Object.assign(me, meData);
+  Trello.get("members/me").done(function(mdata) {
+    Object.assign(meObj, mdata);
   });
 
   Trello.get("members/me/organizations").done(function(tdata) {
     var tdLen = tdata.length;
     for (var td = 0; td < tdLen; td++) {
-      teamArr.push(tdata[td]);
+      tArr.push(tdata[td]);
     }
   });
 
@@ -66,24 +67,33 @@ function reapMyBoards() {
   .done(function(bdata) {
     var bdLen = bdata.length;
     for (var bd = 0; bd < bdLen; bd++) {
-      boardArr.push(bdata[bd]);
+      $("#viewBoards").append("<div class='board' id='" + bdata[bd].id +
+      "'><h1>" + bdata[bd].name + "</h1><div class='board-lists'></div></div>");
+      bArr.push(bdata[bd]);
       Trello.get("boards/" + bdata[bd].id + "/lists")
       .done(function(ldata) {
         var ldLen = ldata.length;
         for (var ld = 0; ld < ldLen; ld++) {
-          listArr.push(ldata[ld]);
+          $("#" + ldata[ld].idBoard + " > .board-lists")
+          .append("<div class='list' id='" + ldata[ld].id + "'><h2>" +
+          ldata[ld].name + "</h2><div class='list-cards'></div></div>");
+          lArr.push(ldata[ld]);
         }
       });
       Trello.get("boards/" + bdata[bd].id + "/cards")
       .done(function(cdata) {
         var cdLen = cdata.length;
         for (var cd = 0; cd < cdLen; cd++) {
-          cardArr.push(cdata[cd]);
+          $("#" + cdata[cd].idList + " > .list-cards")
+          .append("<div class='card' id='" + cdata[cd].id + "'><p>" +
+          "</p></div>");
+          cArr.push(cdata[cd]);
         }
       });
     }
   });
 
+/*
   $.when.apply($, boardArr).done(function() {
     var baLen = boardArr.length;
     for (var ba = 0; ba < baLen; ba++) {
@@ -109,4 +119,6 @@ function reapMyBoards() {
       "</p></div>");
     }
   });
+*/
+
 }
