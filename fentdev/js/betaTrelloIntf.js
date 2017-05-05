@@ -102,30 +102,30 @@ function reapMyBoards() {
   });
 
   $.when(dfdBoardArr).done(function() {
-    var bh, bhlen = barr.length;
+    var bh, bhlen = boardArr.length;
     for (bh = 0; bh < bhlen; bh++) {
-      $("#viewBoards").append("<div class='board' id='" + barr[bh].id +
-      "'><h1>" + barr[bh].name + "</h1><div class='board-lists'></div></div>");
+      $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
+      "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
       if (bh + 1 === bhlen) { console.log("board html resolve"); dfdBoardHtml.resolve(); }
     }
   });
 
   $.when(dfdBoardHtml, dfdListArr).done(function() {
-    var lh, lhlen = larr.length;
+    var lh, lhlen = listArr.length;
     for (lh = 0; lh < lhlen; lh++) {
-      $("#" + larr[lh].idBoard + " > .board-lists")
-      .append("<div class='list' id='" + larr[lh].id + "'><h2>" +
-      larr[lh].name + "</h2><div class='list-cards'></div></div>");
+      $("#" + listArr[lh].idBoard + " > .board-lists")
+      .append("<div class='list' id='" + listArr[lh].id + "'><h2>" +
+      listArr[lh].name + "</h2><div class='list-cards'></div></div>");
       if (lh + 1 === lhlen) { console.log("list html resolve"); dfdListHtml.resolve(); }
     }
   });
 
   $.when(dfdListHtml, dfdCardArr).done(function() {
-    var ch, chlen = carr.length;
+    var ch, chlen = cardArr.length;
     for (ch = 0; ch < chlen; ch++) {
-      $("#" + carr[ch].idList + " > .list-cards")
-      .append("<div class='card' id='" + carr[ch].id + "'><p>" +
-      carr[ch].name + "</p></div>");
+      $("#" + cardArr[ch].idList + " > .list-cards")
+      .append("<div class='card' id='" + cardArr[ch].id + "'><p>" +
+      cardArr[ch].name + "</p></div>");
       if (ch + 1 === chlen) { console.log("card html resolve"); dfdCardHtml.resolve(); }
     }
   });
