@@ -90,7 +90,13 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
     }
   });
 
-
+  setTimeout(function() {
+    for (var ca = 0; ca < cArr; ca++) {
+      $("#" + cardArr[ca].idList + " > .list-cards")
+      .append("<div class='card' id='" + cardArr[ca].id + "'><p>" +
+      "</p></div>");
+    }
+  }, 500);
 
 /*
   $.when.apply($, cardArr).done(function() {
