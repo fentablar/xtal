@@ -72,7 +72,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
       barr.push(bdata[bd]);
       if (bd + 1 === bdlen) { dfdBoardArr.resolve(); }
     }
-  }, function(bdata) {
+  }).done(function(bdata) {
     var bl, bllen = bdata.length, ltotal = 0;
     for (bl = 0; bl < bllen; bl++) {
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
@@ -84,7 +84,7 @@ function reapMyBoards(meObj, tarr, barr, larr, carr) {
         }
       });
     }
-  }, function(bdata) {
+  }).done(function(bdata) {
     var bc, bclen = bdata.length, ctotal = 0;
     for (bc = 0; bc < bclen; bc++) {
       Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
