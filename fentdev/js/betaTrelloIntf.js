@@ -73,10 +73,10 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
       Trello.get("boards/" + bdata[bd].id + "/lists")
       .done(function(ldata) {
         var ldLen = ldata.length;
-        $("#" + ldata[ld].idBoard + " > .board-lists")
-        .append("<div class='list' id='" + ldata[ld].id + "'><h2>" +
-        ldata[ld].name + "</h2><div class='list-cards'></div></div>");
         for (var ld = 0; ld < ldLen; ld++) {
+          $("#" + ldata[ld].idBoard + " > .board-lists")
+          .append("<div class='list' id='" + ldata[ld].id + "'><h2>" +
+          ldata[ld].name + "</h2><div class='list-cards'></div></div>");
           lArr.push(ldata[ld]);
         }
       });
@@ -90,7 +90,7 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
     }
   });
 
-  
+
 
 /*
   $.when.apply($, cardArr).done(function() {
