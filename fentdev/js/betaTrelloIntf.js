@@ -93,11 +93,11 @@ function reapMyBoards(meObj, tArr, bArr, lArr, cArr) {
   setTimeout(function() {
     var caLen = cArr.length;
     for (var ca = 0; ca < caLen; ca++) {
-      $("#" + cardArr[ca].idList + " > .list-cards")
-      .append("<div class='card' id='" + cardArr[ca].id + "'><p>" +
-      "</p></div>");
+      $("#" + cArr[ca].idList + " > .list-cards")
+      .append("<div class='card' id='" + cArr[ca].id + "'><p>" +
+      cArr[ca].name + "</p></div>");
     }
-  }, 5000);
+  }, 1500);
 
 /*
   $.when.apply($, cardArr).done(function() {
