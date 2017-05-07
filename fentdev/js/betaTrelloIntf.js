@@ -135,7 +135,7 @@ function reapMyBoards() {
   });
 
   $.when(dfdCardHtml).done(function() {
-    $(".board-lists").mCustomScrollbar({
+    $(".board").mCustomScrollbar({
       theme: "inset-2",
       axis: "x",
       scrollInertia: 0,
