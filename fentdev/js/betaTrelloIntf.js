@@ -133,4 +133,17 @@ function reapMyBoards() {
       if (chdone === chlen) { console.log("card html resolve"); dfdCardHtml.resolve(); }
     }
   });
+
+  $.when(dfdCardHtml).done(function() {
+    $(".board-lists").mCustomScrollbar({
+      theme: "inset-2",
+      axis: "x",
+      scrollInertia: 0,
+      mouseWheel: { enable: false }
+    });
+    $(".list-cards").mCustomScrollbar({
+      theme: "minimal-dark",
+      scrollIntertia: 0
+    });
+  });
 }
