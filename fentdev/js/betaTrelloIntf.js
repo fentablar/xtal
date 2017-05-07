@@ -68,10 +68,11 @@ function reapMyBoards() {
   });
 
   Trello.get("members/me/boards").done(function(bdata) {
-    var bd, bdlen = bdata.length;
+    var bd, bdlen = bdata.length, bddone = 0;
     for (bd = 0; bd < bdlen; bd++) {
       boardArr.push(bdata[bd]);
-      if (bd + 1 === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
+      bddone += 1;
+      if (bddone === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
     }
   }).done(function(bdata) {
     var bl, bllen = bdata.length, bldone = 0;
@@ -102,31 +103,34 @@ function reapMyBoards() {
   });
 
   $.when(dfdBoardArr).done(function() {
-    var bh, bhlen = boardArr.length;
+    var bh, bhlen = boardArr.length, bhdone = 0;
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
-      if (bh + 1 === bhlen) { console.log("board html resolve"); dfdBoardHtml.resolve(); }
+      bhdone += 1;
+      if (bhdone === bhlen) { console.log("board html resolve"); dfdBoardHtml.resolve(); }
     }
   });
 
   $.when(dfdBoardHtml, dfdListArr).done(function() {
-    var lh, lhlen = listArr.length;
+    var lh, lhlen = listArr.length, lhdone = 0;
     for (lh = 0; lh < lhlen; lh++) {
       $("#" + listArr[lh].idBoard + " > .board-lists")
       .append("<div class='list' id='" + listArr[lh].id + "'><h2>" +
       listArr[lh].name + "</h2><div class='list-cards'></div></div>");
-      if (lh + 1 === lhlen) { console.log("list html resolve"); dfdListHtml.resolve(); }
+      lhdone += 1;
+      if (lhdone === lhlen) { console.log("list html resolve"); dfdListHtml.resolve(); }
     }
   });
 
   $.when(dfdListHtml, dfdCardArr).done(function() {
-    var ch, chlen = cardArr.length;
+    var ch, chlen = cardArr.length, chdone = 0;
     for (ch = 0; ch < chlen; ch++) {
       $("#" + cardArr[ch].idList + " > .list-cards")
       .append("<div class='card' id='" + cardArr[ch].id + "'><p>" +
       cardArr[ch].name + "</p></div>");
-      if (ch + 1 === chlen) { console.log("card html resolve"); dfdCardHtml.resolve(); }
+      chdone += 1;
+      if (chdone === chlen) { console.log("card html resolve"); dfdCardHtml.resolve(); }
     }
   });
 }
