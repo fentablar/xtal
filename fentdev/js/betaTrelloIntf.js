@@ -71,7 +71,7 @@ function reapMyBoards() {
     var bd, bdlen = bdata.length, bddone = 0;
     for (bd = 0; bd < bdlen; bd++) {
       boardArr.push(bdata[bd]);
-      bddone += 1;
+      bddone++;
       if (bddone === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
     }
   }).done(function(bdata) {
@@ -79,10 +79,10 @@ function reapMyBoards() {
     for (bl = 0; bl < bllen; bl++) {
       Trello.get("boards/" + bdata[bl].id + "/lists").done(function(ldata) {
         var ld, ldlen = ldata.length, lddone = 0;
-        bldone += 1;
+        bldone++;
         for (ld = 0; ld < ldlen; ld++) {
           listArr.push(ldata[ld]);
-          lddone += 1;
+          lddone++;
           if (bldone === bllen && lddone === ldlen) { console.log("list arr resolve"); dfdListArr.resolve(); }
         }
       });
@@ -92,10 +92,10 @@ function reapMyBoards() {
     for (bc = 0; bc < bclen; bc++) {
       Trello.get("boards/" + bdata[bc].id + "/cards").done(function(cdata) {
         var cd, cdlen = cdata.length, cddone = 0;
-        bcdone += 1;
+        bcdone++;
         for (cd = 0; cd < cdlen; cd++) {
           cardArr.push(cdata[cd]);
-          cddone += 1;
+          cddone++;
           if (bcdone === bclen && cddone === cdlen) { console.log("card arr resolve"); dfdCardArr.resolve(); }
         }
       });
@@ -107,7 +107,7 @@ function reapMyBoards() {
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
-      bhdone += 1;
+      bhdone++;
       if (bhdone === bhlen) { console.log("board html resolve"); dfdBoardHtml.resolve(); }
     }
   });
@@ -118,7 +118,7 @@ function reapMyBoards() {
       $("#" + listArr[lh].idBoard + " > .board-lists")
       .append("<div class='list' id='" + listArr[lh].id + "'><h2>" +
       listArr[lh].name + "</h2><div class='list-cards'></div></div>");
-      lhdone += 1;
+      lhdone++;
       if (lhdone === lhlen) { console.log("list html resolve"); dfdListHtml.resolve(); }
     }
   });
@@ -129,7 +129,7 @@ function reapMyBoards() {
       $("#" + cardArr[ch].idList + " > .list-cards")
       .append("<div class='card' id='" + cardArr[ch].id + "'><p>" +
       cardArr[ch].name + "</p></div>");
-      chdone += 1;
+      chdone++;
       if (chdone === chlen) { console.log("card html resolve"); dfdCardHtml.resolve(); }
     }
   });
