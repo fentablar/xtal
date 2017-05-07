@@ -143,7 +143,8 @@ function reapMyBoards() {
     });
     $(".list-cards").mCustomScrollbar({
       theme: "minimal-dark",
-      scrollIntertia: 0
+      scrollIntertia: 0,
+      mouseWheel: { enable: true }
     });
   });
 }
