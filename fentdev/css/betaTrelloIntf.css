@@ -96,18 +96,23 @@ nav {
 }
 
 .cardDue, .cardSrc {
-  font-size: 0.8rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .cardDue {
+  font-size: 0.9rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .cardDesc {
   margin: 10px 0;
   font-style: italic;
   text-align: center;
+}
+
+.cardSrc {
+  font-size: 0.8rem;
 }
 
 .cardSrcList {
