@@ -153,11 +153,12 @@ function reapMyBoards() {
     });
     for (pd = 0; pd < pastDue.length; pd++) {
       var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
-      var pdBoard = for (var b = 0; b < boardArr.length; b++) {
-        if (boardArr[b].id === pastDue[pd].idBoard) return boardArr[b].name;
+      var pdBoard = "", pdList = "";
+      for (var b = 0; b < boardArr.length; b++) {
+        if (boardArr[b].id === pastDue[pd].idBoard) return pdBoard = boardArr[b].name;
       }
-      var pdList = for (var l = 0; l < listArr.length; l++) {
-        if (listArr[l].id === pastDue[pd].idList) return listArr[l].name;
+      for (var l = 0; l < listArr.length; l++) {
+        if (listArr[l].id === pastDue[pd].idList) return pdList = listArr[l].name;
       }
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
