@@ -51,10 +51,9 @@ function authorizeTrello() {
 }
 
 function reapMyBoards() {
+  var dtNow = new Date(Date.now());
   var me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
-  var dfdBoardArr = $.Deferred();
-  var dfdListArr = $.Deferred();
-  var dfdCardArr = $.Deferred();
+  var dfdBoardArr = $.Deferred(), dfdListArr = $.Deferred(), dfdCardArr = $.Deferred();
 
   Trello.get("members/me").done(function(mdata) {
     Object.assign(me, mdata);
@@ -72,7 +71,9 @@ function reapMyBoards() {
     for (bd = 0; bd < bdlen; bd++) {
       boardArr.push(bdata[bd]);
       bddone++;
-      if (bddone === bdlen) { console.log("board arr resolve"); dfdBoardArr.resolve(); }
+      if (bddone === bdlen) {
+        console.log("board arr resolve"); dfdBoardArr.resolve();
+      }
     }
   }).done(function(bdata) {
     var bl, bllen = bdata.length, bldone = 0;
@@ -83,7 +84,9 @@ function reapMyBoards() {
         for (ld = 0; ld < ldlen; ld++) {
           listArr.push(ldata[ld]);
           lddone++;
-          if (bldone === bllen && lddone === ldlen) { console.log("list arr resolve"); dfdListArr.resolve(); }
+          if (bldone === bllen && lddone === ldlen) {
+            console.log("list arr resolve"); dfdListArr.resolve();
+          }
         }
       });
     }
@@ -96,16 +99,18 @@ function reapMyBoards() {
         for (cd = 0; cd < cdlen; cd++) {
           cardArr.push(cdata[cd]);
           cddone++;
-          if (bcdone === bclen && cddone === cdlen) { console.log("card arr resolve"); dfdCardArr.resolve(); }
+          if (bcdone === bclen && cddone === cdlen) {
+            console.log("card arr resolve"); dfdCardArr.resolve();
+          }
         }
       });
     }
   });
 
   $.when(dfdBoardArr, dfdListArr, dfdCardArr).done(function() {
-    var bh, bhlen = boardArr.length;
-    var lh, lhlen = listArr.length;
-    var ch, chlen = cardArr.length;
+    var bh, lh, ch, pd, td, fd, nd;
+    var bhlen = boardArr.length, lhlen = listArr.length, chlen = cardArr.length;
+    var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
@@ -119,6 +124,38 @@ function reapMyBoards() {
       $("#" + cardArr[ch].idList + " > .list-cards")
       .append("<div class='card' id='" + cardArr[ch].id + "'><p>" +
       cardArr[ch].name + "</p></div>");
+      if (cardArr[ch].due === null) { nullDue.push(cardArr[ch]); }
+      else if (cardArr[ch].dueComplete === true) { cmpDue.push(cardArr[ch]); }
+      else if ((new Date(cardArr[ch].due).toLocaleDateString()) === dtNow.toLocaleDateString())
+        { todayDue.push(cardArr[ch]); }
+      else if (cardArr[ch].due < dtNow.toISOString()) { pastDue.push(cardArr[ch]); }
+      else { futureDue.push(cardArr[ch]); }
+    }
+    pastDue.sort(function(a, b) {
+      if (a.due < b.due) return -1;
+      if (a.due > b.due) return 1;
+      return 0;
+    });
+    todayDue.sort(function(a, b) {
+      if (a.due < b.due) return -1;
+      if (a.due > b.due) return 1;
+      return 0;
+    });
+    futureDue.sort(function(a, b) {
+      if (a.due < b.due) return -1;
+      if (a.due > b.due) return 1;
+      return 0;
+    });
+    cmpDue.sort(function(a, b) {
+      if (a.due < b.due) return -1;
+      if (a.due > b.due) return 1;
+      return 0;
+    });
+    for (pd = 0; pd < pastDue.length; pd++) {
+      $("#pastDue > .cardContainer").append("<div class='catCard board-" +
+      pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDesc'>" +
+      "<span>" + pastDue[pd].name + "</span></div><div class='cardSrc'>" +
+      "<span>Board&ensp;&ndash;&ensp;List</span></div></div>");
     }
     $(".board").mCustomScrollbar({
       theme: "inset-2",
