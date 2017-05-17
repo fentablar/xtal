@@ -162,10 +162,10 @@ function reapMyBoards() {
       }
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
-      pdDate + "</div><div class='cardDesc'>" +
-      "<span>" + pastDue[pd].name + "</span></div><div class='cardSrc'>" +
-      "<div class='cardSrcBoard'>" + pdBoard + "</div><div class='cardSrcList'>" +
-      pdList + "</div></div></div>");
+      pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
+      "</span></div><div class='cardSrc'><div class='cardSrcBoard'>Board&colon;&ensp;" +
+      pdBoard + "</div><div class='cardSrcList'>List&colon;&ensp;" + pdList +
+      "</div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
       var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
