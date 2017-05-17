@@ -157,6 +157,18 @@ function reapMyBoards() {
       "<span>" + pastDue[pd].name + "</span></div><div class='cardSrc'>" +
       "<span>Board&ensp;&ndash;&ensp;List</span></div></div>");
     }
+    for (td = 0; td < todayDue.length; pd++) {
+      $("#dueToday > .cardContainer").append("<div class='catCard board-" +
+      todayDue[td].idBoard + "' id='" + todayDue[td].id + "'><div class='cardDesc'>" +
+      "<span>" + todayDue[td].name + "</span></div><div class='cardSrc'>" +
+      "<span>Board&ensp;&ndash;&ensp;List</span></div></div>");
+    }
+    for (fd = 0; fd < futureDue.length; pd++) {
+      $("#dueTomorrow > .cardContainer").append("<div class='catCard board-" +
+      futureDue[fd].idBoard + "' id='" + futureDue[fd].id + "'><div class='cardDesc'>" +
+      "<span>" + futureDue[fd].name + "</span></div><div class='cardSrc'>" +
+      "<span>Board&ensp;&ndash;&ensp;List</span></div></div>");
+    }
     $(".board").mCustomScrollbar({
       theme: "inset-2",
       axis: "x",
