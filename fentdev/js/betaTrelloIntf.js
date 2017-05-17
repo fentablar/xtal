@@ -152,7 +152,7 @@ function reapMyBoards() {
       return 0;
     });
     for (pd = 0; pd < pastDue.length; pd++) {
-      var pdDate = new Date(pastDue[pd].due).toLocaleTimeString("en-US", { month: "short", day: "numeric" });
+      var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" +
@@ -161,19 +161,19 @@ function reapMyBoards() {
       "<span>List</span></div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
-      var tdDate = new Date(todayDue[td].due).toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric" });
+      var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
       $("#todayDue > .cardContainer").append("<div class='catCard board-" +
       todayDue[td].idBoard + "' id='" + todayDue[td].id + "'><div class='cardDue'>" +
-      tdDate + "<div class='cardDesc'>" +
+      tdDate + "</div><div class='cardDesc'>" +
       "<span>" + todayDue[td].name + "</span></div><div class='cardSrc'>" +
       "<div class='cardSrcBoard'><span>Board</span></div><div class='cardSrcList'>" +
       "<span>List</span></div></div></div>");
     }
     for (fd = 0; fd < futureDue.length; fd++) {
-      var fdDate = new Date(futureDue[fd].due).toLocaleTimeString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var fdDate = new Date(futureDue[fd].due).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       $("#futureDue > .cardContainer").append("<div class='catCard board-" +
       futureDue[fd].idBoard + "' id='" + futureDue[fd].id + "'><div class='cardDue'>" +
-      fdDate + "<div class='cardDesc'>" +
+      fdDate + "</div><div class='cardDesc'>" +
       "<span>" + futureDue[fd].name + "</span></div><div class='cardSrc'>" +
       "<div class='cardSrcBoard'><span>Board</span></div><div class='cardSrcList'>" +
       "<span>List</span></div></div></div>");
