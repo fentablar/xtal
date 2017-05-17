@@ -178,11 +178,11 @@ function reapMyBoards() {
       "<div class='cardSrcBoard'><span>Board</span></div><div class='cardSrcList'>" +
       "<span>List</span></div></div></div>");
     }
-    $(".cardContainer").mCustomScrollbar({
+    /* $(".cardContainer").mCustomScrollbar({
       theme: "dark-3",
       axis: "y",
       mouseWheel: { enable: true }
-    });
+    }); */
     $(".board").mCustomScrollbar({
       theme: "inset-2",
       axis: "x",
