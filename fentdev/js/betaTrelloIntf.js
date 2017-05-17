@@ -153,12 +153,18 @@ function reapMyBoards() {
     });
     for (pd = 0; pd < pastDue.length; pd++) {
       var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
+      var pdBoard = for (var b = 0; b < boardArr.length; b++) {
+        if (boardArr[b].id === pastDue[pd].idBoard) return boardArr[b].name;
+      }
+      var pdList = for (var l = 0; l < listArr.length; l++) {
+        if (listArr[l].id === pastDue[pd].idList) return listArr[l].name;
+      }
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" +
       "<span>" + pastDue[pd].name + "</span></div><div class='cardSrc'>" +
-      "<div class='cardSrcBoard'><span>Board</span></div><div class='cardSrcList'>" +
-      "<span>List</span></div></div></div>");
+      "<div class='cardSrcBoard'>" + pdBoard + "</div><div class='cardSrcList'>" +
+      pdList + "</div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
       var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
