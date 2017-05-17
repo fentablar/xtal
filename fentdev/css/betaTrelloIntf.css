@@ -70,7 +70,7 @@ nav {
 }
 
 .categoryHeader {
-  margin: 10px;
+  margin: 10px 10px 10px 20px;
   font-weight: bold;
   font-style: italic;
   font-size: 1.2rem;
@@ -106,10 +106,7 @@ nav {
 .cardDesc {
   margin: 10px 0;
   font-style: italic;
-}
-
-.cardSrc {
-  /* font-style: italic; */
+  text-align: center;
 }
 
 .cardSrcList {
