@@ -52,9 +52,9 @@ function authorizeTrello() {
 
 function reapMyBoards() {
   var me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
-  var dfdBoardArr = $.Deferred(), dfdBoardHtml = $.Deferred();
-  var dfdListArr = $.Deferred(), dfdListHtml = $.Deferred();
-  var dfdCardArr = $.Deferred(), dfdCardHtml = $.Deferred();
+  var dfdBoardArr = $.Deferred();
+  var dfdListArr = $.Deferred();
+  var dfdCardArr = $.Deferred();
 
   Trello.get("members/me").done(function(mdata) {
     Object.assign(me, mdata);
@@ -103,9 +103,9 @@ function reapMyBoards() {
   });
 
   $.when(dfdBoardArr, dfdListArr, dfdCardArr).done(function() {
-    var bh, bhlen = boardArr.length, bhdone = 0;
-    var lh, lhlen = listArr.length, lhdone = 0;
-    var ch, chlen = cardArr.length, chdone = 0;
+    var bh, bhlen = boardArr.length;
+    var lh, lhlen = listArr.length;
+    var ch, chlen = cardArr.length;
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
