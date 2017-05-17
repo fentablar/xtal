@@ -120,19 +120,17 @@ function reapMyBoards() {
       .append("<div class='card' id='" + cardArr[ch].id + "'><p>" +
       cardArr[ch].name + "</p></div>");
     }
-    function() {
-      $(".board").mCustomScrollbar({
-        theme: "inset-2",
-        axis: "x",
-        scrollInertia: 0,
-        mouseWheel: { enable: false }
-      });
-      $(".list-cards").mCustomScrollbar({
-        theme: "minimal-dark",
-        axis: "y",
-        mouseWheel: { enable: true }
-      });
-    }
+    $(".board").mCustomScrollbar({
+      theme: "inset-2",
+      axis: "x",
+      scrollInertia: 0,
+      mouseWheel: { enable: false }
+    });
+    $(".list-cards").mCustomScrollbar({
+      theme: "minimal-dark",
+      axis: "y",
+      mouseWheel: { enable: true }
+    });
   });
 /*
   $.when(dfdBoardArr).done(function() {
