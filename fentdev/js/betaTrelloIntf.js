@@ -102,6 +102,39 @@ function reapMyBoards() {
     }
   });
 
+  $.when(dfdBoardArr, dfdListArr, dfdCardArr).done(function() {
+    var bh, bhlen = boardArr.length, bhdone = 0;
+    var lh, lhlen = listArr.length, lhdone = 0;
+    var ch, chlen = cardArr.length, chdone = 0;
+    for (bh = 0; bh < bhlen; bh++) {
+      $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
+      "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
+    }
+    for (lh = 0; lh < lhlen; lh++) {
+      $("#" + listArr[lh].idBoard + " > .board-lists")
+      .append("<div class='list' id='" + listArr[lh].id + "'><h2>" +
+      listArr[lh].name + "</h2><div class='list-cards'></div></div>");
+    }
+    for (ch = 0; ch < chlen; ch++) {
+      $("#" + cardArr[ch].idList + " > .list-cards")
+      .append("<div class='card' id='" + cardArr[ch].id + "'><p>" +
+      cardArr[ch].name + "</p></div>");
+    }
+    function() {
+      $(".board").mCustomScrollbar({
+        theme: "inset-2",
+        axis: "x",
+        scrollInertia: 0,
+        mouseWheel: { enable: false }
+      });
+      $(".list-cards").mCustomScrollbar({
+        theme: "minimal-dark",
+        axis: "y",
+        mouseWheel: { enable: true }
+      });
+    }
+  });
+/*
   $.when(dfdBoardArr).done(function() {
     var bh, bhlen = boardArr.length, bhdone = 0;
     for (bh = 0; bh < bhlen; bh++) {
@@ -146,5 +179,5 @@ function reapMyBoards() {
       axis: "y",
       mouseWheel: { enable: true }
     });
-  });
+  }); */
 }
