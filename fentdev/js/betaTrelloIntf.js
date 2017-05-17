@@ -163,8 +163,8 @@ function reapMyBoards() {
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
-      "</span></div><div class='cardSrc'><div class='cardSrcBoard'>Board&colon;&ensp;" +
-      pdBoard + "</div><div class='cardSrcList'>List&colon;&ensp;" + pdList +
+      "</span></div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+      pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
       "</div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
