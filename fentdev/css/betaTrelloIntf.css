@@ -73,7 +73,7 @@ nav {
   margin: 10px;
   font-weight: bold;
   font-style: italic;
-  text-align: center;
+  font-size: 1.2rem;
 }
 
 .cardContainer {
@@ -86,7 +86,7 @@ nav {
 .catCard {
   padding: 5px;
   border-bottom: 1px solid #202020;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.1;
 }
 
@@ -94,14 +94,26 @@ nav {
   border-bottom: none;
 }
 
+.cardDue, .cardSrc {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.cardDue {
+  font-weight: bold;
+}
+
 .cardDesc {
-  margin-bottom: 3px;
+  margin: 10px 0;
+  font-style: italic;
 }
 
 .cardSrc {
-  font-size: 0.8rem;
-  font-style: italic;
-  text-align: center;
+  /* font-style: italic; */
+}
+
+.cardSrcList {
+  margin-top: 3px;
 }
 
 #recentActivity > .dashViewContainer {
