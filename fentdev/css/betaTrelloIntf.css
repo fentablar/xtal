@@ -154,6 +154,8 @@ nav {
   overflow-x: auto;
 }
 
+#recentActivity { display: none; }
+
 #recentActivity > .dashViewContainer {
   overflow-x: auto;
 }
