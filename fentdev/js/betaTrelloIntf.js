@@ -269,7 +269,7 @@ function reapMyBoards() {
       theme: "dark-3",
       axis: "y",
       mouseWheel: { enable: true }
-    }); */
+    });
     $(".board").mCustomScrollbar({
       theme: "inset-2",
       axis: "x",
@@ -280,7 +280,7 @@ function reapMyBoards() {
       theme: "minimal-dark",
       axis: "y",
       mouseWheel: { enable: true }
-    });
+    }); */
     console.log("All Done " + Date.now())
   });
 }
