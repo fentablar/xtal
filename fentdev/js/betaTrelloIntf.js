@@ -43,6 +43,9 @@ $(function() {
 
   $("#boardSelect").change(function() {
     var boardOpt = $("#boardSelect option:selected").val();
+    if (boardOpt === "allBoards") {
+      $("#viewBoards .board").removeClass("hideMe");
+    }
     $("#viewBoards .board").addClass("hideMe");
     $("#viewBoards #" + boardOpt).removeClass("hideMe");
   });
