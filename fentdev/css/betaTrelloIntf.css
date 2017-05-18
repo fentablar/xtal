@@ -95,6 +95,28 @@ nav {
   border-bottom: none;
 }
 
+#noDueDates > .dashViewContainer {
+  overflow-x: auto;
+}
+
+#noDueDatesContainer {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  max-height: 500px;
+  padding: 10px;
+}
+
+.noDueDatesItem {
+  min-width: 300px;
+  max-width: 300px;
+  padding: 5px;
+  margin-right: 20px;
+  border-top: 1px solid #202020;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
 .cardDue, .cardSrc {
   /* text-align: center; */
 }
@@ -122,24 +144,6 @@ nav {
 
 #noDueDates > .dashViewContainer {
   overflow-x: auto;
-}
-
-#noDueDatesContainer {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  max-height: 500px;
-  padding: 10px;
-}
-
-.noDueDatesItem {
-  min-width: 300px;
-  max-width: 300px;
-  padding: 5px;
-  margin-right: 20px;
-  border-top: 1px solid #202020;
-  font-size: 1rem;
-  line-height: 1.1;
 }
 
 #recentActivity > .dashViewContainer {
