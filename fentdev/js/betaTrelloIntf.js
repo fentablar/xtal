@@ -202,7 +202,7 @@ function reapMyBoards() {
       fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
       "</div></div></div>");
     }
-    for (nd = 0; nd < ndlen; nd++) {
+    for (nd = 0; nd < nullDue.length; nd++) {
       var ndBoard = "", ndList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === nullDue[nd].idBoard) { ndBoard = boardArr[b].name; }
