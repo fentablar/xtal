@@ -32,7 +32,10 @@ $(function() {
   });
 
   $("#actionItemsShowHide").on("click", function() {
-    $(".actionsCategory").toggleClass("hideMe");
+    $("#actionItems > .dashViewContainer").toggleClass("hideMe");
+  });
+  $("#noDueDatesShowHide").on("click", function() {
+    $("#noDueDates > .dashViewContainer").toggleClass("hideMe");
   });
 });
 
@@ -147,8 +150,8 @@ function reapMyBoards() {
       return 0;
     });
     cmpDue.sort(function(a, b) {
-      if (a.due > b.due) return -1;
-      if (a.due < b.due) return 1;
+      if (a.dateLastActivity > b.dateLastActivity) return -1;
+      if (a.dateLastActivity < b.dateLastActivity) return 1;
       return 0;
     });
     for (pd = 0; pd < pastDue.length; pd++) {
@@ -198,6 +201,20 @@ function reapMyBoards() {
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
       "</div></div></div>");
+    }
+    for (nd = 0; nd < nullDue.length; nd++) {
+      var ndBoard = "", ndList = "";
+      for (var b = 0; b < bhlen; b++) {
+        if (boardArr[b].id === nullDue[nd].idBoard) { ndBoard = boardArr[b].name; }
+      }
+      for (var l = 0; l < lhlen; l++) {
+        if (listArr[l].id === nullDue[nd].idBoard) { ndList = listArr[l].name; }
+      }
+      $("#noDueDatesContainer").append("<div class='noDueDatesItem board-" +
+      nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "><div class='cardDesc'>" +
+      nullDue[nd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
+      "board&colon;&ensp;" + ndBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
+      ndList + "</div></div></div>");
     }
     /* $(".cardContainer").mCustomScrollbar({
       theme: "dark-3",

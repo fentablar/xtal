@@ -14,6 +14,9 @@ $(function() {
   $("#actionItemsShowHide").on("click", function() {
     $("#actionItems > .dashViewContainer").toggleClass("hideMe");
   });
+  $("#noDueDatesShowHide").on("click", function() {
+    $("#noDueDates > .dashViewContainer").toggleClass("hideMe");
+  });
   $("#recentActivityShowHide").on("click", function() {
     $("#recentActivity > .dashViewContainer").toggleClass("hideMe");
   });
