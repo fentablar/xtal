@@ -174,7 +174,7 @@ function reapMyBoards() {
         if (boardArr[b].id === todayDue[td].idBoard) { tdBoard = boardArr[b].name; }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === todayDue[td].idLIst) { tdList = listArr[l].name; }
+        if (listArr[l].id === todayDue[td].idList) { tdList = listArr[l].name; }
       }
       $("#todayDue > .cardContainer").append("<div class='catCard board-" +
       todayDue[td].idBoard + "' id='" + todayDue[td].id + "'><div class='cardDue'>" +
