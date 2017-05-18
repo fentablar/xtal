@@ -218,7 +218,8 @@ function reapMyBoards() {
       cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><div class='cardDesc'>" +
       cmpDue[cmpd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
       "board&colon;&ensp;" + cmpBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
-      cmpList + "</div><div class='cardLastAct'>" + cmpDate + "</div></div></div>");
+      cmpList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
+      cmpDate + "</div></div></div>");
     }
     for (nd = 0; nd < nullDue.length; nd++) {
       var ndBoard = "", ndList = "";
