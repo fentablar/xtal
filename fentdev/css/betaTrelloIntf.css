@@ -84,7 +84,7 @@ nav {
 }
 
 .catCard {
-  padding: 5px;
+  padding: 5px 5px 10px;
   border-bottom: 1px solid #202020;
   margin-bottom: 10px;
   font-size: 1rem;
