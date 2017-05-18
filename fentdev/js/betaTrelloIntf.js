@@ -46,8 +46,8 @@ $(function() {
     if (boardOpt === "allBoards") {
       $("#viewBoards .board").removeClass("hideMe");
     } else {
-      $("#viewBoards .board").addClass("hideMe");
-      $("#viewBoards #" + boardOpt).removeClass("hideMe");
+      $(".board").addClass("hideMe");
+      $("#" + boardOpt).removeClass("hideMe");
     }
   });
 });
