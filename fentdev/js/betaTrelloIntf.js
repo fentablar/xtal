@@ -40,6 +40,12 @@ $(function() {
   $("#noDueDatesShowHide").on("click", function() {
     $("#noDueDates > .dashViewContainer").toggleClass("hideMe");
   });
+
+  $("#boardSelect").change(function() {
+    var boardOpt = $("#boardSelect option:selected").val();
+    $("#viewBoards .board").addClass("hideMe");
+    $("#viewBoards #" + boardOpt).removeClass("hideMe");
+  });
 });
 
 function authorizeTrello() {
