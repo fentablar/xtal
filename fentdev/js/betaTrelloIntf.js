@@ -171,6 +171,7 @@ function reapMyBoards() {
     });
     for (pd = 0; pd < pastDue.length; pd++) {
       var pdDate = new Date(pastDue[pd].due).toLocaleString(navigator.language, { month: "short", day: "numeric" });
+      var pdDLA = new Date(pastDue[pd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var pdBoard = "", pdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === pastDue[pd].idBoard) {
@@ -189,10 +190,12 @@ function reapMyBoards() {
       pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
+      "</div><div class='cardLastAct'>last activity&colon;&ensp;" + pdDLA +
       "</div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
       var tdDate = new Date(todayDue[td].due).toLocaleString(navigator.language, { hour: "numeric", minute: "numeric" });
+      var tdDLA = new Date(todayDue[td].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var tdBoard = "", tdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === todayDue[td].idBoard) {
@@ -211,10 +214,12 @@ function reapMyBoards() {
       tdDate + "</div><div class='cardDesc'>" + todayDue[td].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
+      "</div><div class='cardLastAct'>last activity&colon;&ensp;" + tdDLA +
       "</div></div></div>");
     }
     for (fd = 0; fd < futureDue.length; fd++) {
       var fdDate = new Date(futureDue[fd].due).toLocaleString(navigator.language, { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var fdDLA = new Date(futureDue[fd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var fdBoard = "", fdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === futureDue[fd].idBoard) {
@@ -233,10 +238,11 @@ function reapMyBoards() {
       fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
+      "</div><div class='cardLastAct'>last activity&colon;&ensp;" + fdDLA +
       "</div></div></div>");
     }
     for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
-      var cmpDate = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var cmpDLA = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var cmpBoard = "", cmpList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === cmpDue[cmpd].idBoard) {
@@ -255,9 +261,10 @@ function reapMyBoards() {
       cmpDue[cmpd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
       "board&colon;&ensp;" + cmpBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
       cmpList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
-      cmpDate + "</div></div></div>");
+      cmpDLA + "</div></div></div>");
     }
     for (nd = 0; nd < nullDue.length; nd++) {
+      var ndDLA = new Date(nullDue[nd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var ndBoard = "", ndList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === nullDue[nd].idBoard) {
@@ -275,7 +282,8 @@ function reapMyBoards() {
       nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><div class='cardDesc'>" +
       nullDue[nd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
       "board&colon;&ensp;" + ndBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
-      ndList + "</div></div></div>");
+      ndList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
+      ndDLA + "</div></div></div>");
     }
     /* $(".cardContainer").mCustomScrollbar({
       theme: "dark-3",
