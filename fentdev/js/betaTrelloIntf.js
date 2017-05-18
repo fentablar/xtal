@@ -224,7 +224,7 @@ function reapMyBoards() {
       "</div></div></div>");
     }
     for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
-      var cmpDate = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var cmpDate = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var cmpBoard = "", cmpList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === cmpDue[cmpd].idBoard) {
