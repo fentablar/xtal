@@ -158,7 +158,7 @@ function reapMyBoards() {
       return 0;
     });
     for (pd = 0; pd < pastDue.length; pd++) {
-      var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
+      var pdDate = new Date(pastDue[pd].due).toLocaleString(navigator.language, { month: "short", day: "numeric" });
       var pdBoard = "", pdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === pastDue[pd].idBoard) {
@@ -180,7 +180,7 @@ function reapMyBoards() {
       "</div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
-      var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
+      var tdDate = new Date(todayDue[td].due).toLocaleString(navigator.language, { hour: "numeric", minute: "numeric" });
       var tdBoard = "", tdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === todayDue[td].idBoard) {
@@ -202,7 +202,7 @@ function reapMyBoards() {
       "</div></div></div>");
     }
     for (fd = 0; fd < futureDue.length; fd++) {
-      var fdDate = new Date(futureDue[fd].due).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var fdDate = new Date(futureDue[fd].due).toLocaleString(navigator.language, { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var fdBoard = "", fdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === futureDue[fd].idBoard) {
