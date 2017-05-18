@@ -10,7 +10,7 @@ var trelloAuthFail = function() {
 }
 
 var trelloAuthSuccess = function() {
-  console.log("Trello auth SUCCESS");
+  console.log("Trello auth SUCCESS " + Date.now());
   reapMyBoards();
 };
 
@@ -78,7 +78,7 @@ function reapMyBoards() {
       boardArr.push(bdata[bd]);
       bddone++;
       if (bddone === bdlen) {
-        console.log("board arr resolve"); dfdBoardArr.resolve();
+        console.log("board arr resolve " + Date.now()); dfdBoardArr.resolve();
       }
     }
   }).done(function(bdata) {
@@ -91,7 +91,7 @@ function reapMyBoards() {
           listArr.push(ldata[ld]);
           lddone++;
           if (bldone === bllen && lddone === ldlen) {
-            console.log("list arr resolve"); dfdListArr.resolve();
+            console.log("list arr resolve " + Date.now()); dfdListArr.resolve();
           }
         }
       });
@@ -106,7 +106,7 @@ function reapMyBoards() {
           cardArr.push(cdata[cd]);
           cddone++;
           if (bcdone === bclen && cddone === cdlen) {
-            console.log("card arr resolve"); dfdCardArr.resolve();
+            console.log("card arr resolve " + Date.now()); dfdCardArr.resolve();
           }
         }
       });
