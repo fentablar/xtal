@@ -147,8 +147,8 @@ function reapMyBoards() {
       return 0;
     });
     cmpDue.sort(function(a, b) {
-      if (a.due < b.due) return -1;
-      if (a.due > b.due) return 1;
+      if (a.due > b.due) return -1;
+      if (a.due < b.due) return 1;
       return 0;
     });
     for (pd = 0; pd < pastDue.length; pd++) {
@@ -161,7 +161,7 @@ function reapMyBoards() {
         if (listArr[l].id === pastDue[pd].idList) { pdList = listArr[l].name; }
       }
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
-      pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
+      pastDue[pd].idBoard + "' id='act-" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
@@ -177,7 +177,7 @@ function reapMyBoards() {
         if (listArr[l].id === todayDue[td].idList) { tdList = listArr[l].name; }
       }
       $("#todayDue > .cardContainer").append("<div class='catCard board-" +
-      todayDue[td].idBoard + "' id='" + todayDue[td].id + "'><div class='cardDue'>" +
+      todayDue[td].idBoard + "' id='act-" + todayDue[td].id + "'><div class='cardDue'>" +
       tdDate + "</div><div class='cardDesc'>" + todayDue[td].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
@@ -193,7 +193,7 @@ function reapMyBoards() {
         if (listArr[l].id === futureDue[fd].idList) { fdList = listArr[l].name; }
       }
       $("#futureDue > .cardContainer").append("<div class='catCard board-" +
-      futureDue[fd].idBoard + "' id='" + futureDue[fd].id + "'><div class='cardDue'>" +
+      futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><div class='cardDue'>" +
       fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
