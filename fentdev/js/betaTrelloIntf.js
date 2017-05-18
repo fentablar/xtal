@@ -120,6 +120,8 @@ function reapMyBoards() {
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
+      $("#boardSelect").append("<option value='" + boardArr[bh].id + "'>" +
+      boardArr[bh].name + "</option>");
     }
     for (lh = 0; lh < lhlen; lh++) {
       $("#" + listArr[lh].idBoard + " > .board-lists")
