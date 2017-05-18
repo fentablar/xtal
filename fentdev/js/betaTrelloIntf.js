@@ -161,10 +161,16 @@ function reapMyBoards() {
       var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
       var pdBoard = "", pdList = "";
       for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === pastDue[pd].idBoard) { pdBoard = boardArr[b].name; }
+        if (boardArr[b].id === pastDue[pd].idBoard) {
+          pdBoard = boardArr[b].name;
+          break;
+        }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === pastDue[pd].idList) { pdList = listArr[l].name; }
+        if (listArr[l].id === pastDue[pd].idList) {
+          pdList = listArr[l].name;
+          break;
+        }
       }
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='act-" + pastDue[pd].id + "'><div class='cardDue'>" +
@@ -177,10 +183,16 @@ function reapMyBoards() {
       var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
       var tdBoard = "", tdList = "";
       for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === todayDue[td].idBoard) { tdBoard = boardArr[b].name; }
+        if (boardArr[b].id === todayDue[td].idBoard) {
+          tdBoard = boardArr[b].name;
+          break;
+        }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === todayDue[td].idList) { tdList = listArr[l].name; }
+        if (listArr[l].id === todayDue[td].idList) {
+          tdList = listArr[l].name;
+          break;
+        }
       }
       $("#todayDue > .cardContainer").append("<div class='catCard board-" +
       todayDue[td].idBoard + "' id='act-" + todayDue[td].id + "'><div class='cardDue'>" +
@@ -193,10 +205,16 @@ function reapMyBoards() {
       var fdDate = new Date(futureDue[fd].due).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var fdBoard = "", fdList = "";
       for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === futureDue[fd].idBoard) { fdBoard = boardArr[b].name; }
+        if (boardArr[b].id === futureDue[fd].idBoard) {
+          fdBoard = boardArr[b].name;
+          break;
+        }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === futureDue[fd].idList) { fdList = listArr[l].name; }
+        if (listArr[l].id === futureDue[fd].idList) {
+          fdList = listArr[l].name;
+          break;
+        }
       }
       $("#futureDue > .cardContainer").append("<div class='catCard board-" +
       futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><div class='cardDue'>" +
@@ -206,13 +224,19 @@ function reapMyBoards() {
       "</div></div></div>");
     }
     for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
-      var cmpDate = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var cmpDate = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var cmpBoard = "", cmpList = "";
       for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === cmpDue[cmpd].idBoard) { cmpBoard = boardArr[b].name; }
+        if (boardArr[b].id === cmpDue[cmpd].idBoard) {
+          cmpBoard = boardArr[b].name;
+          break;
+        }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === cmpDue[cmpd].idList) { cmpList = listArr[l].name; }
+        if (listArr[l].id === cmpDue[cmpd].idList) {
+          cmpList = listArr[l].name;
+          break;
+        }
       }
       $("#cmpItemsContainer").append("<div class='cmpCard board-" +
       cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><div class='cardDesc'>" +
@@ -224,10 +248,16 @@ function reapMyBoards() {
     for (nd = 0; nd < nullDue.length; nd++) {
       var ndBoard = "", ndList = "";
       for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === nullDue[nd].idBoard) { ndBoard = boardArr[b].name; }
+        if (boardArr[b].id === nullDue[nd].idBoard) {
+          ndBoard = boardArr[b].name;
+          break;
+        }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === nullDue[nd].idList) { ndList = listArr[l].name; }
+        if (listArr[l].id === nullDue[nd].idList) {
+          ndList = listArr[l].name;
+          break;
+        }
       }
       $("#noDueDatesContainer").append("<div class='noDueDatesItem board-" +
       nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><div class='cardDesc'>" +
