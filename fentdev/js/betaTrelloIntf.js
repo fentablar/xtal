@@ -208,7 +208,7 @@ function reapMyBoards() {
         if (boardArr[b].id === nullDue[nd].idBoard) { ndBoard = boardArr[b].name; }
       }
       for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === nullDue[nd].idBoard) { ndList = listArr[l].name; }
+        if (listArr[l].id === nullDue[nd].idList) { ndList = listArr[l].name; }
       }
       $("#noDueDatesContainer").append("<div class='noDueDatesItem board-" +
       nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><div class='cardDesc'>" +
