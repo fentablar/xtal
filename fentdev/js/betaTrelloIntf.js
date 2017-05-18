@@ -154,36 +154,50 @@ function reapMyBoards() {
     for (pd = 0; pd < pastDue.length; pd++) {
       var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
       var pdBoard = "", pdList = "";
-      for (var b = 0; b < boardArr.length; b++) {
+      for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === pastDue[pd].idBoard) { pdBoard = boardArr[b].name; }
       }
-      for (var l = 0; l < listArr.length; l++) {
+      for (var l = 0; l < lhlen; l++) {
         if (listArr[l].id === pastDue[pd].idList) { pdList = listArr[l].name; }
       }
       $("#pastDue > .cardContainer").append("<div class='catCard board-" +
       pastDue[pd].idBoard + "' id='" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
-      "</span></div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+      "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
       "</div></div></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
       var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
+      var tdBoard = "", tdList = "";
+      for (var b = 0; b < bhlen; b++) {
+        if (boardArr[b].id === todayDue[td].idBoard) { tdBoard = boardArr[b].name; }
+      }
+      for (var l = 0; l < lhlen; l++) {
+        if (listArr[l].id === todayDue[td].idLIst) { tdList = listArr[l].name; }
+      }
       $("#todayDue > .cardContainer").append("<div class='catCard board-" +
       todayDue[td].idBoard + "' id='" + todayDue[td].id + "'><div class='cardDue'>" +
-      tdDate + "</div><div class='cardDesc'>" +
-      "<span>" + todayDue[td].name + "</span></div><div class='cardSrc'>" +
-      "<div class='cardSrcBoard'><span>Board</span></div><div class='cardSrcList'>" +
-      "<span>List</span></div></div></div>");
+      tdDate + "</div><div class='cardDesc'>" + todayDue[td].name +
+      "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+      tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
+      "</div></div></div>");
     }
     for (fd = 0; fd < futureDue.length; fd++) {
       var fdDate = new Date(futureDue[fd].due).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var fdBoard = "", fdList = "";
+      for (var b = 0; b < bhlen; b++) {
+        if (boardArr[b].id === futureDue[fd].idBoard) { fdBoard = boardArr[b].name; }
+      }
+      for (var l = 0; l < lhlen; l++) {
+        if (listArr[l].id === futureDue[fd].idList) { fdList = listArr[l].name; }
+      }
       $("#futureDue > .cardContainer").append("<div class='catCard board-" +
       futureDue[fd].idBoard + "' id='" + futureDue[fd].id + "'><div class='cardDue'>" +
-      fdDate + "</div><div class='cardDesc'>" +
-      "<span>" + futureDue[fd].name + "</span></div><div class='cardSrc'>" +
-      "<div class='cardSrcBoard'><span>Board</span></div><div class='cardSrcList'>" +
-      "<span>List</span></div></div></div>");
+      fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
+      "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+      fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
+      "</div></div></div>");
     }
     /* $(".cardContainer").mCustomScrollbar({
       theme: "dark-3",
