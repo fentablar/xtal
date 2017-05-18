@@ -114,8 +114,6 @@ function reapMyBoards() {
     var bh, lh, ch, pd, td, fd, nd, cmpd;
     var bhlen = boardArr.length, lhlen = listArr.length, chlen = cardArr.length;
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
-    var pdlen = pastDue.length, tdlen = todayDue.length, fdlen = futureDue.length;
-    var ndlen = nullDue.length, cmpdlen = cmpDue.length;
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
@@ -156,7 +154,7 @@ function reapMyBoards() {
       if (a.dateLastActivity < b.dateLastActivity) return 1;
       return 0;
     });
-    for (pd = 0; pd < pdlen; pd++) {
+    for (pd = 0; pd < pastDue.length; pd++) {
       var pdDate = new Date(pastDue[pd].due).toLocaleString("en-US", { month: "short", day: "numeric" });
       var pdBoard = "", pdList = "";
       for (var b = 0; b < bhlen; b++) {
@@ -172,7 +170,7 @@ function reapMyBoards() {
       pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
       "</div></div></div>");
     }
-    for (td = 0; td < tdlen; td++) {
+    for (td = 0; td < todayDue.length; td++) {
       var tdDate = new Date(todayDue[td].due).toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
       var tdBoard = "", tdList = "";
       for (var b = 0; b < bhlen; b++) {
@@ -188,7 +186,7 @@ function reapMyBoards() {
       tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
       "</div></div></div>");
     }
-    for (fd = 0; fd < fdlen; fd++) {
+    for (fd = 0; fd < futureDue.length; fd++) {
       var fdDate = new Date(futureDue[fd].due).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       var fdBoard = "", fdList = "";
       for (var b = 0; b < bhlen; b++) {
