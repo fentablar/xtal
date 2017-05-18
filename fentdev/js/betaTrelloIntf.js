@@ -34,6 +34,9 @@ $(function() {
   $("#actionItemsShowHide").on("click", function() {
     $("#actionItems > .dashViewContainer").toggleClass("hideMe");
   });
+  $("#cmpItemsShowHide").on("click", function() {
+    $("#cmpItems > .dashViewContainer").toggleClass("hideMe");
+  });
   $("#noDueDatesShowHide").on("click", function() {
     $("#noDueDates > .dashViewContainer").toggleClass("hideMe");
   });
@@ -201,6 +204,21 @@ function reapMyBoards() {
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
       "</div></div></div>");
+    }
+    for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
+      var cmpDate = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var cmpBoard = "", cmpList = "";
+      for (var b = 0; b < bhlen; b++) {
+        if (boardArr[b].id === cmpDue[cmpd].idBoard) { cmpBoard = boardArr[b].name; }
+      }
+      for (var l = 0; l < lhlen; l++) {
+        if (listArr[l].id === cmpDue[cmpd].idList) { cmpList = listArr[l].name; }
+      }
+      $("#cmpItemsContainer").append("<div class='cmpCard board-" +
+      cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><div class='cardDesc'>" +
+      cmpDue[cmpd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
+      "board&colon;&ensp;" + cmpBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
+      cmpList + "</div><div class='cardLastAct'>" + cmpDate + "</div></div></div>");
     }
     for (nd = 0; nd < nullDue.length; nd++) {
       var ndBoard = "", ndList = "";

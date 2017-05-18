@@ -99,7 +99,11 @@ nav {
   overflow-x: auto;
 }
 
-#noDueDatesContainer {
+#cmpItems > .dashViewContainer {
+  overflow-x: auto;
+}
+
+#noDueDatesContainer, #cmpItemsContainer {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -107,7 +111,7 @@ nav {
   padding: 10px;
 }
 
-.noDueDatesItem {
+.noDueDatesItem, .cmpCard {
   min-width: 300px;
   max-width: 300px;
   padding: 5px;
@@ -138,8 +142,12 @@ nav {
   font-style: italic;
 }
 
-.cardSrcList {
+.cardSrcList, .cardLastAct {
   margin-top: 3px;
+}
+
+.cardLastAct {
+  font-weight: bold;
 }
 
 #noDueDates > .dashViewContainer {
