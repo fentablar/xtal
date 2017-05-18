@@ -281,5 +281,6 @@ function reapMyBoards() {
       axis: "y",
       mouseWheel: { enable: true }
     });
+    console.log("All Done " + Date.now())
   });
 }
