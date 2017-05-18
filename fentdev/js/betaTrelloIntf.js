@@ -44,10 +44,10 @@ $(function() {
   $("#boardSelect").change(function() {
     var boardOpt = $("#boardSelect option:selected").val();
     if (boardOpt === "allBoards") {
-      $(".board").removeClass("hideMe");
+      $(".board, .actCard, .cmpCard, .nddCard").removeClass("hideMe");
     } else {
-      $(".board").addClass("hideMe");
-      $("#" + boardOpt).removeClass("hideMe");
+      $(".board, .actCard, .cmpCard, .nddCard").addClass("hideMe");
+      $("#" + boardOpt + ", .board-" + boardOpt).removeClass("hideMe");
     }
   });
 });
