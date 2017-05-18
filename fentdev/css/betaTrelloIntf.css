@@ -7,10 +7,18 @@ body {
   padding: 20px;
 }
 
+header {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .navButton {
@@ -28,6 +36,16 @@ nav {
 
 #viewBoards {
   display: none;
+}
+
+.selector {
+  margin: 5px 10px 20px;
+}
+
+#boardSelect {
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
 
 .dashHeader {
