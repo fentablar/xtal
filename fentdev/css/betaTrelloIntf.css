@@ -101,7 +101,7 @@ nav {
   overflow-y: auto;
 }
 
-.catCard {
+.actCard {
   padding: 5px 5px 10px;
   border-bottom: 1px solid #202020;
   margin-bottom: 10px;
@@ -109,7 +109,7 @@ nav {
   line-height: 1.1;
 }
 
-.catCard:last-child {
+.actCard:last-child {
   border-bottom: none;
 }
 
@@ -129,7 +129,7 @@ nav {
   padding: 10px;
 }
 
-.noDueDatesItem, .cmpCard {
+.nddCard, .cmpCard {
   min-width: 300px;
   max-width: 300px;
   padding: 5px;

@@ -44,7 +44,7 @@ $(function() {
   $("#boardSelect").change(function() {
     var boardOpt = $("#boardSelect option:selected").val();
     if (boardOpt === "allBoards") {
-      $("#viewBoards .board").removeClass("hideMe");
+      $(".board").removeClass("hideMe");
     } else {
       $(".board").addClass("hideMe");
       $("#" + boardOpt).removeClass("hideMe");
@@ -184,7 +184,7 @@ function reapMyBoards() {
           break;
         }
       }
-      $("#pastDue > .cardContainer").append("<div class='catCard board-" +
+      $("#pastDue > .cardContainer").append("<div class='actCard board-" +
       pastDue[pd].idBoard + "' id='act-" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
@@ -206,7 +206,7 @@ function reapMyBoards() {
           break;
         }
       }
-      $("#todayDue > .cardContainer").append("<div class='catCard board-" +
+      $("#todayDue > .cardContainer").append("<div class='actCard board-" +
       todayDue[td].idBoard + "' id='act-" + todayDue[td].id + "'><div class='cardDue'>" +
       tdDate + "</div><div class='cardDesc'>" + todayDue[td].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
@@ -228,7 +228,7 @@ function reapMyBoards() {
           break;
         }
       }
-      $("#futureDue > .cardContainer").append("<div class='catCard board-" +
+      $("#futureDue > .cardContainer").append("<div class='actCard board-" +
       futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><div class='cardDue'>" +
       fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
@@ -271,7 +271,7 @@ function reapMyBoards() {
           break;
         }
       }
-      $("#noDueDatesContainer").append("<div class='noDueDatesItem board-" +
+      $("#noDueDatesContainer").append("<div class='nddCard board-" +
       nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><div class='cardDesc'>" +
       nullDue[nd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
       "board&colon;&ensp;" + ndBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
