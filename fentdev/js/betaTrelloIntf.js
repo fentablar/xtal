@@ -148,7 +148,7 @@ function reapMyBoards() {
       }
       $("#" + cardArr[ch].idList + " > .list-cards")
       .append("<div class='card' id='" + cardArr[ch].id + "'><div class='crdLabels'>" +
-      chLabels + "</div><div class='cardName'>" + cardArr[ch].name + "</div></div>");
+      chLabels + "</div><div class='crdName'>" + cardArr[ch].name + "</div></div>");
       if (cardArr[ch].due === null) { nullDue.push(cardArr[ch]); }
       else if (cardArr[ch].dueComplete === true) { cmpDue.push(cardArr[ch]); }
       else if ((new Date(cardArr[ch].due).toLocaleDateString()) === dtNow.toLocaleDateString())
