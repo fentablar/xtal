@@ -253,6 +253,23 @@ nav {
   border-radius: 3px;
 }
 
+.crdLabels {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.crdLbl {
+  width: 35px;
+  height: 8px;
+  margin: 0 5px 5px 0;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+}
+
+.crdName {
+  margin: 5px 0;
+}
+
 /* keep this at the bottom */
 .hideMe {
   display: none;
