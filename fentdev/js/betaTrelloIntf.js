@@ -225,7 +225,7 @@ function reapMyBoards() {
       }
       $("#todayDue > .cardContainer").append("<div class='actCard board-" +
       todayDue[td].idBoard + "' id='act-" + todayDue[td].id + "'><a href='" +
-      todayDue[td].url + "'<div class='cardDue'>" + tdDate +
+      todayDue[td].url + "' target='_blank'><div class='cardDue'>" + tdDate +
       "</div><div class='cardDesc'>" + todayDue[td].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
@@ -249,12 +249,13 @@ function reapMyBoards() {
         }
       }
       $("#futureDue > .cardContainer").append("<div class='actCard board-" +
-      futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><div class='cardDue'>" +
+      futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><a href='" +
+      futureDue[fd].url + "' target='_blank'><div class='cardDue'>" +
       fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
       "</div><div class='cardLastAct'>last activity&colon;&ensp;" + fdDLA +
-      "</div></div></div>");
+      "</div></div></a></div>");
     }
     for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
       var cmpDLA = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
