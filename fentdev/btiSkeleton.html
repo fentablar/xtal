@@ -14,24 +14,61 @@
   <script src="js/btiSkeleton.js"></script>
 </head>
 <body>
-  <div id="pageTitle">
-    <span>xtal Trello Interface</span>
-  </div>
-  <header>
-    <nav>
-      <div class="navButton navActive" id="dashButton">
-        <span>View Dashboard</span>
+  <header id="headerMain">
+    <div class="pageTitle">
+      <div class="pageName">
+        <span>xtal Trello Interface</span>
       </div>
-      <div class="navButton" id="boardsButton">
-        <span>View Boards</span>
+      <div class="pageVersion">
+        <span>version 0&period;1</span>
+      </div>
+    </div>
+    <nav class="headerNav">
+      <div class="navItem">
+        <div class="navButton navActive" id="dashButton">
+          <span>View Dashboard</span>
+        </div>
+      </div>
+      <div class="navItem">
+        <div class="navButton" id="boardsButton">
+          <span>View Boards</span>
+        </div>
+      </div>
+      <div class="navItem">
+        <select class="selector" id="boardSelect">
+          <option selected disabled hidden>&pr;select board to view&sc;</option>
+          <option value="allBoards">All Boards &lpar;default&rpar;</option>
+        </select>
       </div>
     </nav>
-    <div class="selector">
-      <select id="boardSelect">
-        <option selected disabled hidden>&pr;select board to view&sc;</option>
-        <option value="allBoards">All Boards &lpar;default&rpar;</option>
-      </select>
+  </header>
+  <header id="headerHidden">
+    <div class="pageTitle">
+      <div class="pageName">
+        <span>xtal Trello Interface</span>
+      </div>
+      <div class="pageVersion">
+        <span>version 0&period;</span>
+      </div>
     </div>
+    <nav class="headerNav">
+      <div class="navItem">
+        <div class="navButton">
+          <span>View Dashboard</span>
+        </div>
+      </div>
+      <div class="navItem">
+        <div class="navButton">
+          <span>View Boards</span>
+        </div>
+      </div>
+      <div class="navItem">
+        <select class="selector" id="boardSelectHidden">
+          <option selected disabled hidden>&pr;select board to view&sc;</option>
+          <option value="allBoards">All Boards &lpar;default&rpar;</option>
+        </select>
+      </div>
+    </nav>
   </header>
   <main>
     <section id="viewDash">
@@ -368,116 +405,6 @@
                 <div class="cardSrcList">
                   <span>List</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="dashSection" id="recentActivity">
-        <div class="dashHeader">
-          <h1>Recent Activity</h1>
-          <h4 class="showHide" id="recentActivityShowHide">show&sol;hide</h4>
-        </div>
-        <div class="dashViewContainer">
-          <div id="recentActivityContainer">
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
-              </div>
-            </div>
-            <div class="recentActivityItem">
-              <div class="recentActivitySrc">
-                <span class="recentActivityBoard">Board</span>
-                &ensp;&ndash;&ensp;
-                <span class="recentActivityTime">Date&sol;Time</span>
-              </div>
-              <div class="recentActivityDesc">
-                <span class="recentActivityText">David Jordan moved recent activity skeleton template from Workflow -- to be worked to Workflow -- in flight</span>
               </div>
             </div>
           </div>
