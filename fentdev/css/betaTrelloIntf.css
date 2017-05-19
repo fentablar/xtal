@@ -71,9 +71,6 @@ main { padding: 0 20px; }
 
 .selector {
   margin: 0;
-}
-
-#boardSelect {
   padding: 3px;
   border-radius: 5px;
   font-family: sans-serif;
