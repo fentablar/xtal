@@ -261,6 +261,8 @@ nav {
   border-radius: 3px;
 }
 
+.card:hover { background-color: #E8E8E8; }
+
 .crdLabels {
   display: flex;
   flex-flow: row wrap;
