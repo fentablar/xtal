@@ -273,11 +273,12 @@ function reapMyBoards() {
         }
       }
       $("#cmpItemsContainer").append("<div class='cmpCard board-" +
-      cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><div class='cardDesc'>" +
+      cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><a href='" +
+      cmpDue[cmpd].url + "' target='_blank'><div class='cardDesc'>" +
       cmpDue[cmpd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
       "board&colon;&ensp;" + cmpBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
       cmpList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
-      cmpDLA + "</div></div></div>");
+      cmpDLA + "</div></div></a></div>");
     }
     for (nd = 0; nd < nullDue.length; nd++) {
       var ndDLA = new Date(nullDue[nd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
@@ -295,11 +296,12 @@ function reapMyBoards() {
         }
       }
       $("#noDueDatesContainer").append("<div class='nddCard board-" +
-      nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><div class='cardDesc'>" +
+      nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><a href='" +
+      nullDue[nd].url + "' target='_blank'><div class='cardDesc'>" +
       nullDue[nd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
       "board&colon;&ensp;" + ndBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
       ndList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
-      ndDLA + "</div></div></div>");
+      ndDLA + "</div></div></a></div>");
     }
     /* $(".cardContainer").mCustomScrollbar({
       theme: "dark-3",
