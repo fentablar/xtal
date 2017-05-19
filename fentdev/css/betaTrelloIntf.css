@@ -5,7 +5,7 @@ a:link, a:visited {
   text-decoration: none;
 }
 
-a:hover { color: darkslateblue; }
+a:hover { color: slateblue; }
 
 body {
   background-color: gainsboro;
