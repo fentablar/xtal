@@ -129,7 +129,8 @@ function reapMyBoards() {
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
-      "'><h1>" + boardArr[bh].name + "</h1><div class='board-lists'></div></div>");
+      "'><h1><a href=" + boardArr[bh].url + ">" + boardArr[bh].name +
+      "</a></h1><div class='board-lists'></div></div>");
       $("#boardSelect").append("<option value='" + boardArr[bh].id + "'>" +
       boardArr[bh].name + "</option>");
     }
