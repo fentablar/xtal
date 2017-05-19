@@ -151,9 +151,10 @@ function reapMyBoards() {
         chDate += "Due&colon;&ensp;" + new Date(cardArr[ch].due).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
       }
       $("#" + cardArr[ch].idList + " > .list-cards")
-      .append("<div class='card' id='" + cardArr[ch].id + "'><div class='crdLabels'>" +
-      chLabels + "</div><div class='crdName'>" + cardArr[ch].name +
-      "</div><div class='crdDue'>" + chDate + "</div></div>");
+      .append("<a href='" + cardArr[ch].url + "' target='_blank'><div class='card' id='" +
+      cardArr[ch].id + "'><div class='crdLabels'>" + chLabels +
+      "</div><div class='crdName'>" + cardArr[ch].name +
+      "</div><div class='crdDue'>" + chDate + "</div></div></a>");
       if (cardArr[ch].due === null) { nullDue.push(cardArr[ch]); }
       else if (cardArr[ch].dueComplete === true) { cmpDue.push(cardArr[ch]); }
       else if ((new Date(cardArr[ch].due).toLocaleDateString()) === dtNow.toLocaleDateString())
