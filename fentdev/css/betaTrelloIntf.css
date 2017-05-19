@@ -120,6 +120,8 @@ nav {
   border-bottom: none;
 }
 
+.actCard:hover { color: dodgerblue; }
+
 #noDueDates > .dashViewContainer {
   overflow-x: auto;
 }

@@ -198,13 +198,14 @@ function reapMyBoards() {
           break;
         }
       }
-      $("#pastDue > .cardContainer").append("<div class='actCard board-" +
-      pastDue[pd].idBoard + "' id='act-" + pastDue[pd].id + "'><div class='cardDue'>" +
+      $("#pastDue > .cardContainer").append("<a href='" + pastDue[pd].url +
+      "' target='_blank'><div class='actCard board-" + pastDue[pd].idBoard +
+      "' id='act-" + pastDue[pd].id + "'><div class='cardDue'>" +
       pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
       "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
       pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
       "</div><div class='cardLastAct'>last activity&colon;&ensp;" + pdDLA +
-      "</div></div></div>");
+      "</div></div></div></a>");
     }
     for (td = 0; td < todayDue.length; td++) {
       var tdDate = new Date(todayDue[td].due).toLocaleString(navigator.language, { hour: "numeric", minute: "numeric" });
