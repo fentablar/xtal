@@ -55,7 +55,7 @@ $(function() {
 function authorizeTrello() {
   Trello.authorize({
     type: "popup",
-    name: "xtal trello interface",
+    name: "xtal Trello Interface",
     scope: {
       read: "true",
       write: "true"
