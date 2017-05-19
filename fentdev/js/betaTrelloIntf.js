@@ -139,16 +139,16 @@ function reapMyBoards() {
       listArr[lh].name + "</h2><div class='list-cards'></div></div>");
     }
     for (ch = 0; ch < chlen; ch++) {
-      $("#" + cardArr[ch].idList + " > .list-cards")
-      .append("<div class='card' id='" + cardArr[ch].id + "'><div class='crdLabels'>" +
+      var chLabels = "";
       if (cardArr[ch].labels.length > 0) {
         for (var chl = 0; chl < cardArr[ch].labels.length; chl++) {
-          "<div class='crdLbl' style='background-color:" + cardArr[ch].labels[chl].color +
-          "'></div>"
+          chLabels += "<div class='crdLbl' style='background-color:" +
+          cardArr[ch].labels[chl].color + "'></div>";
         }
       }
-      + "</div><div class='cardName'>" +
-      cardArr[ch].name + "</div></div>");
+      $("#" + cardArr[ch].idList + " > .list-cards")
+      .append("<div class='card' id='" + cardArr[ch].id + "'><div class='crdLabels'>" +
+      chLabels + "</div><div class='cardName'>" + cardArr[ch].name + "</div></div>");
       if (cardArr[ch].due === null) { nullDue.push(cardArr[ch]); }
       else if (cardArr[ch].dueComplete === true) { cmpDue.push(cardArr[ch]); }
       else if ((new Date(cardArr[ch].due).toLocaleDateString()) === dtNow.toLocaleDateString())
