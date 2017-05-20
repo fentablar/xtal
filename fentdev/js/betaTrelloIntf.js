@@ -11,8 +11,8 @@ var trelloAuthFail = function() {
 
   $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
   "Trello Did Not Authorize</div><div class='loadSubheading'>" +
-  "please ensure you click &quot;Allow&quot; so the app can connect to " +
-  "Trello&semi; you may need to clear your browser cache before attempting "
+  "please ensure you click \u0022Allow\u0022 so the app can connect to " +
+  "Trello\u003B you may need to clear your browser cache before attempting "
   "to reauthenticate</div></div>");
 }
 
@@ -21,15 +21,15 @@ var trelloAuthSuccess = function() {
 
   $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
   "Fetching Data</div><div class='loadSubheading'>" +
-  "one moment please&hellip;</div></div>");
+  "one moment please\u2026</div></div>");
 
   reapMyBoards();
 };
 
 $(function() {
   $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
-  "Authorizing Trello&hellip;</div><div class='loadSubheading'>" +
-  "please allow pop&hyphen;ups on this site in order to authenticate" +
+  "Authorizing Trello\u2026</div><div class='loadSubheading'>" +
+  "please allow pop\u2010ups on this site in order to authenticate" +
   "</div></div>");
 
   authorizeTrello();
@@ -148,7 +148,7 @@ function reapMyBoards() {
 
     $("main").html("<section id='viewDash'><section class='dashSection' id='actionItems'>" +
     "<div class='dashHeader'><h1>Action Items</h1>" +
-    "<h4 class='showHide' id='actionItemsShowHide'>show&sol;hide</h4></div>" +
+    "<h4 class='showHide' id='actionItemsShowHide'>show\u002Fhide</h4></div>" +
     "<div class='dashViewContainer'><div id='actionItemsContainer'>" +
     "<div class='actionsCategory' id='pastDue'><div class='categoryHeader'>" +
     "<h3>Past Due Dates</h3></div><div class='cardContainer'></div></div>" +
@@ -157,11 +157,11 @@ function reapMyBoards() {
     "<div class='actionsCategory' id='futureDue'><div class='categoryHeader'" +
     "<h3>Upcoming Items</h3></div><div class='cardContainer'></div></div></div></div>" +
     "</section><section class='dashSection' id='cmpItems'><div class='dashHeader'>" +
-    "<h1>Completed Items</h1><h4 class='showHide' id='cmpItemsShowHide'>show&sol;hide</h4>" +
+    "<h1>Completed Items</h1><h4 class='showHide' id='cmpItemsShowHide'>show\u002Fhide</h4>" +
     "</div><div class='dashViewContainer'><div id='cmpItemsContainer'></div></div>" +
     "</section><section class='dashSection' id='noDueDates'><div class='dashHeader'>" +
     "<h1>Items with No Due Dates</h1><h4 class='showHide' id='noDueDatesShowHide'>" +
-    "show&sol;hide</h4></div><div class='dashViewContainer'><div id='noDueDatesContainer'>" +
+    "show\u002Fhide</h4></div><div class='dashViewContainer'><div id='noDueDatesContainer'>" +
     "</div></div></section></section><section id='viewBoards'></section>");
 
     for (bh = 0; bh < bhlen; bh++) {
