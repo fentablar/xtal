@@ -10,7 +10,7 @@ var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
 
   $(".loadHeading").html("Trello Did Not Authorize");
-  $(".loadSubheading").html("please ensure you click &quot;Allow&quot; " +
+  $(".loadSubHeading").html("please ensure you click &quot;Allow&quot; " +
   "so the app can connect to Trello&semi; you may need to clear your browser " +
   "cache before attempting to reauthenticate");
 }
@@ -19,14 +19,14 @@ var trelloAuthSuccess = function() {
   console.log("Trello auth SUCCESS " + Date.now());
 
   $(".loadHeading").html("Fetching Data");
-  $(".loadSubheading").html("one moment please&hellip;");
+  $(".loadSubHeading").html("one moment please&hellip;");
 
   reapMyBoards();
 };
 
 $(function() {
   $(".loadHeading").html("Authorizing Trello&hellip;");
-  $(".loadSubheading").html("please allow pop&hyphen;ups on this site in order to authenticate");
+  $(".loadSubHeading").html("please allow pop&hyphen;ups on this site in order to authenticate");
 
   authorizeTrello();
 
