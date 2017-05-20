@@ -1,4 +1,10 @@
+var lang = navigator.language;
 
+var ymdhmLocOpt = { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" };
+var ymdLocOpt = { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" };
+var mdhmLocOpt = { month: "short", hour: "numeric", minute: "numeric" };
+var mdLocOpt = { month: "short", day: "numeric" };
+var hmLocOpt = { hour: "numeric", minute: "numeric" };
 
 var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
@@ -148,7 +154,7 @@ function reapMyBoards() {
         }
       }
       if (cardArr[ch].due !== null) {
-        chDate += "Due&colon;&ensp;" + new Date(cardArr[ch].due).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+        chDate += "Due&colon;&ensp;" + new Date(cardArr[ch].due).toLocaleString(lang, ymdhmLocOpt);
       }
       $("#" + cardArr[ch].idList + " > .list-cards")
       .append("<a href='" + cardArr[ch].url +
@@ -184,8 +190,8 @@ function reapMyBoards() {
       return 0;
     });
     for (pd = 0; pd < pastDue.length; pd++) {
-      var pdDate = new Date(pastDue[pd].due).toLocaleString(navigator.language, { month: "short", day: "numeric" });
-      var pdDLA = new Date(pastDue[pd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var pdDate = new Date(pastDue[pd].due).toLocaleString(lang, mdLocOpt);
+      var pdDLA = new Date(pastDue[pd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
       var pdBoard = "", pdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === pastDue[pd].idBoard) {
@@ -209,8 +215,8 @@ function reapMyBoards() {
       "</div></div></a></div>");
     }
     for (td = 0; td < todayDue.length; td++) {
-      var tdDate = new Date(todayDue[td].due).toLocaleString(navigator.language, { hour: "numeric", minute: "numeric" });
-      var tdDLA = new Date(todayDue[td].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var tdDate = new Date(todayDue[td].due).toLocaleString(lang, hmLocOpt);
+      var tdDLA = new Date(todayDue[td].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
       var tdBoard = "", tdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === todayDue[td].idBoard) {
@@ -234,8 +240,8 @@ function reapMyBoards() {
       "</div></div></a></div>");
     }
     for (fd = 0; fd < futureDue.length; fd++) {
-      var fdDate = new Date(futureDue[fd].due).toLocaleString(navigator.language, { month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
-      var fdDLA = new Date(futureDue[fd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var fdDate = new Date(futureDue[fd].due).toLocaleString(lang, mdhmLocOpt);
+      var fdDLA = new Date(futureDue[fd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
       var fdBoard = "", fdList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === futureDue[fd].idBoard) {
@@ -259,7 +265,7 @@ function reapMyBoards() {
       "</div></div></a></div>");
     }
     for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
-      var cmpDLA = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var cmpDLA = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
       var cmpBoard = "", cmpList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === cmpDue[cmpd].idBoard) {
@@ -282,7 +288,7 @@ function reapMyBoards() {
       cmpDLA + "</div></div></a></div>");
     }
     for (nd = 0; nd < nullDue.length; nd++) {
-      var ndDLA = new Date(nullDue[nd].dateLastActivity).toLocaleString(navigator.language, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" });
+      var ndDLA = new Date(nullDue[nd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
       var ndBoard = "", ndList = "";
       for (var b = 0; b < bhlen; b++) {
         if (boardArr[b].id === nullDue[nd].idBoard) {
