@@ -104,7 +104,7 @@ header, footer {
 
 main { padding: 0 20px; }
 
-#viewBoards {
+#viewDash, #viewBoards {
   display: none;
 }
 

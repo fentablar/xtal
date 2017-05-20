@@ -21,10 +21,6 @@ var trelloAuthSuccess = function() {
   $(".loadHeading").html("Fetching Data");
   $(".loadSubheading").html("one moment please&hellip;");
 
-  $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
-  "Fetching Data</div><div class='loadSubheading'>" +
-  "one moment please&hellip;</div></div>");
-
   reapMyBoards();
 };
 
@@ -145,6 +141,7 @@ function reapMyBoards() {
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
 
     $(".loadNotice").css("display", "none");
+    $("#viewDash").css("display", "block");
     $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
 
     for (bh = 0; bh < bhlen; bh++) {
