@@ -308,11 +308,6 @@ main { padding: 0 20px; }
   font-style: italic;
 }
 
-/* keep this at the bottom */
-.hideMe {
-  display: none;
-}
-
 .loadNotice {
   margin: auto;
   text-align: center;
@@ -333,4 +328,9 @@ main { padding: 0 20px; }
   margin: 20px auto;
   font-size: 1rem;
   font-style: italic;
+}
+
+/* keep this at the bottom */
+.hideMe {
+  display: none;
 }
