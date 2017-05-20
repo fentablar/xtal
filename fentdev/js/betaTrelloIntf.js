@@ -133,6 +133,27 @@ function reapMyBoards() {
     var bh, lh, ch, pd, td, fd, nd, cmpd;
     var bhlen = boardArr.length, lhlen = listArr.length, chlen = cardArr.length;
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
+
+    $("#headerMain > .headerNav").css("visibility", "visible");
+
+    $("main").html("<section id='viewDash'><section class='dashSection' id='actionItems'>" +
+    "<div class='dashHeader'><h1>Action Items</h1>" +
+    "<h4 class='showHide' id='actionItemsShowHide'>show&sol;hide</h4></div>" +
+    "<div class='dashViewContainer'><div id='actionItemsContainer'>" +
+    "<div class='actionsCategory' id='pastDue'><div class='categoryHeader'>" +
+    "<h3>Past Due Dates</h3></div><div class='cardContainer'></div></div>" +
+    "<div class='actionsCategory' id='todayDue'><div class='categoryHeader'" +
+    "<h3>Due Today</h3></div><div class='cardContainer'></div></div>" +
+    "<div class='actionsCategory' id='futureDue'><div class='categoryHeader'" +
+    "<h3>Upcoming Items</h3></div><div class='cardContainer'></div></div></div></div>" +
+    "</section><section class='dashSection' id='cmpItems'><div class='dashHeader'>" +
+    "<h1>Completed Items</h1><h4 class='showHide' id='cmpItemsShowHide'>show&sol;hide</h4>" +
+    "</div><div class='dashViewContainer'><div id='cmpItemsContainer'></div></div>" +
+    "</section><section class='dashSection' id='noDueDates'><div class='dashHeader'>" +
+    "<h1>Items with No Due Dates</h1><h4 class='showHide' id='noDueDatesShowHide'>" +
+    "show&sol;hide</h4></div><div class='dashViewContainer'><div id='noDueDatesContainer'>" +
+    "</div></div></section></section><section id='viewBoards'></section>");
+
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
       "'><h1><a href='" + boardArr[bh].url + "' target='_blank'>" +
