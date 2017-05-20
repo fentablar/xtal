@@ -131,7 +131,7 @@ main { padding: 0 20px; }
 .showHide {cursor: pointer}
 
 .dashSection {
-  padding: 20px 10px;
+  padding: 20px;
   border-bottom: 1px solid #303030;
 }
 
@@ -180,15 +180,7 @@ main { padding: 0 20px; }
 .actCard:last-child {
   border-bottom: none;
 }
-/*
-#noDueDates > .dashViewContainer {
-  overflow-x: auto;
-}
 
-#cmpItems > .dashViewContainer {
-  overflow-x: auto;
-}
-*/
 #noDueDatesContainer, #cmpItemsContainer {
   display: flex;
   flex-flow: column wrap;
