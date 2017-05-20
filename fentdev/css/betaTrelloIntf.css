@@ -307,3 +307,9 @@ main { padding: 0 20px; }
 .hideMe {
   display: none;
 }
+
+.zeroResults {
+  margin: 20px auto;
+  font-size: 1rem;
+  font-style: italic;
+}

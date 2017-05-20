@@ -189,126 +189,151 @@ function reapMyBoards() {
       if (a.dateLastActivity < b.dateLastActivity) return 1;
       return 0;
     });
-    for (pd = 0; pd < pastDue.length; pd++) {
-      var pdDate = new Date(pastDue[pd].due).toLocaleString(lang, mdLocOpt);
-      var pdDLA = new Date(pastDue[pd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
-      var pdBoard = "", pdList = "";
-      for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === pastDue[pd].idBoard) {
-          pdBoard = boardArr[b].name;
-          break;
+    if (pastDue.length === 0) {
+      $("#pastDue > .cardContainer").append("<div class='zeroResults'>" +
+      "No Past Due Items</div>");
+    } else {
+      for (pd = 0; pd < pastDue.length; pd++) {
+        var pdDate = new Date(pastDue[pd].due).toLocaleString(lang, mdLocOpt);
+        var pdDLA = new Date(pastDue[pd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
+        var pdBoard = "", pdList = "";
+        for (var b = 0; b < bhlen; b++) {
+          if (boardArr[b].id === pastDue[pd].idBoard) {
+            pdBoard = boardArr[b].name;
+            break;
+          }
         }
-      }
-      for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === pastDue[pd].idList) {
-          pdList = listArr[l].name;
-          break;
+        for (var l = 0; l < lhlen; l++) {
+          if (listArr[l].id === pastDue[pd].idList) {
+            pdList = listArr[l].name;
+            break;
+          }
         }
+        $("#pastDue > .cardContainer").append("<div class='actCard board-" +
+        pastDue[pd].idBoard + "' id='act-" + pastDue[pd].id + "'><a href='" +
+        pastDue[pd].url + "' target='_blank'><div class='cardDue'>" +
+        pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
+        "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+        pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
+        "</div><div class='cardLastAct'>last activity&colon;&ensp;" + pdDLA +
+        "</div></div></a></div>");
       }
-      $("#pastDue > .cardContainer").append("<div class='actCard board-" +
-      pastDue[pd].idBoard + "' id='act-" + pastDue[pd].id + "'><a href='" +
-      pastDue[pd].url + "' target='_blank'><div class='cardDue'>" +
-      pdDate + "</div><div class='cardDesc'>" + pastDue[pd].name +
-      "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
-      pdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + pdList +
-      "</div><div class='cardLastAct'>last activity&colon;&ensp;" + pdDLA +
-      "</div></div></a></div>");
     }
-    for (td = 0; td < todayDue.length; td++) {
-      var tdDate = new Date(todayDue[td].due).toLocaleString(lang, hmLocOpt);
-      var tdDLA = new Date(todayDue[td].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
-      var tdBoard = "", tdList = "";
-      for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === todayDue[td].idBoard) {
-          tdBoard = boardArr[b].name;
-          break;
+    if (todayDue.length === 0) {
+      $("#todayDue > .cardContainer").append("<div class='zeroResults'>" +
+      "No Items Due Today</div>");
+    } else {
+      for (td = 0; td < todayDue.length; td++) {
+        var tdDate = new Date(todayDue[td].due).toLocaleString(lang, hmLocOpt);
+        var tdDLA = new Date(todayDue[td].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
+        var tdBoard = "", tdList = "";
+        for (var b = 0; b < bhlen; b++) {
+          if (boardArr[b].id === todayDue[td].idBoard) {
+            tdBoard = boardArr[b].name;
+            break;
+          }
         }
-      }
-      for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === todayDue[td].idList) {
-          tdList = listArr[l].name;
-          break;
+        for (var l = 0; l < lhlen; l++) {
+          if (listArr[l].id === todayDue[td].idList) {
+            tdList = listArr[l].name;
+            break;
+          }
         }
+        $("#todayDue > .cardContainer").append("<div class='actCard board-" +
+        todayDue[td].idBoard + "' id='act-" + todayDue[td].id + "'><a href='" +
+        todayDue[td].url + "' target='_blank'><div class='cardDue'>" + tdDate +
+        "</div><div class='cardDesc'>" + todayDue[td].name +
+        "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+        tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
+        "</div><div class='cardLastAct'>last activity&colon;&ensp;" + tdDLA +
+        "</div></div></a></div>");
       }
-      $("#todayDue > .cardContainer").append("<div class='actCard board-" +
-      todayDue[td].idBoard + "' id='act-" + todayDue[td].id + "'><a href='" +
-      todayDue[td].url + "' target='_blank'><div class='cardDue'>" + tdDate +
-      "</div><div class='cardDesc'>" + todayDue[td].name +
-      "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
-      tdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + tdList +
-      "</div><div class='cardLastAct'>last activity&colon;&ensp;" + tdDLA +
-      "</div></div></a></div>");
     }
-    for (fd = 0; fd < futureDue.length; fd++) {
-      var fdDate = new Date(futureDue[fd].due).toLocaleString(lang, mdhmLocOpt);
-      var fdDLA = new Date(futureDue[fd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
-      var fdBoard = "", fdList = "";
-      for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === futureDue[fd].idBoard) {
-          fdBoard = boardArr[b].name;
-          break;
+    if (futureDue.length === 0) {
+      $("#futureDue > .cardContainer").append("<div class='zeroResults'>" +
+      "No Upcoming Items</div>");
+    } else {
+      for (fd = 0; fd < futureDue.length; fd++) {
+        var fdDate = new Date(futureDue[fd].due).toLocaleString(lang, mdhmLocOpt);
+        var fdDLA = new Date(futureDue[fd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
+        var fdBoard = "", fdList = "";
+        for (var b = 0; b < bhlen; b++) {
+          if (boardArr[b].id === futureDue[fd].idBoard) {
+            fdBoard = boardArr[b].name;
+            break;
+          }
         }
-      }
-      for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === futureDue[fd].idList) {
-          fdList = listArr[l].name;
-          break;
+        for (var l = 0; l < lhlen; l++) {
+          if (listArr[l].id === futureDue[fd].idList) {
+            fdList = listArr[l].name;
+            break;
+          }
         }
+        $("#futureDue > .cardContainer").append("<div class='actCard board-" +
+        futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><a href='" +
+        futureDue[fd].url + "' target='_blank'><div class='cardDue'>" +
+        fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
+        "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
+        fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
+        "</div><div class='cardLastAct'>last activity&colon;&ensp;" + fdDLA +
+        "</div></div></a></div>");
       }
-      $("#futureDue > .cardContainer").append("<div class='actCard board-" +
-      futureDue[fd].idBoard + "' id='act-" + futureDue[fd].id + "'><a href='" +
-      futureDue[fd].url + "' target='_blank'><div class='cardDue'>" +
-      fdDate + "</div><div class='cardDesc'>" + futureDue[fd].name +
-      "</div><div class='cardSrc'><div class='cardSrcBoard'>board&colon;&ensp;" +
-      fdBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" + fdList +
-      "</div><div class='cardLastAct'>last activity&colon;&ensp;" + fdDLA +
-      "</div></div></a></div>");
     }
-    for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
-      var cmpDLA = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
-      var cmpBoard = "", cmpList = "";
-      for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === cmpDue[cmpd].idBoard) {
-          cmpBoard = boardArr[b].name;
-          break;
+    if (cmpDue.length === 0) {
+      $("#cmpItemsContainer").append("<div class='zeroResults'>" +
+      "No Completed Items</div>");
+    } else {
+      for (cmpd = 0; cmpd < cmpDue.length; cmpd++) {
+        var cmpDLA = new Date(cmpDue[cmpd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
+        var cmpBoard = "", cmpList = "";
+        for (var b = 0; b < bhlen; b++) {
+          if (boardArr[b].id === cmpDue[cmpd].idBoard) {
+            cmpBoard = boardArr[b].name;
+            break;
+          }
         }
-      }
-      for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === cmpDue[cmpd].idList) {
-          cmpList = listArr[l].name;
-          break;
+        for (var l = 0; l < lhlen; l++) {
+          if (listArr[l].id === cmpDue[cmpd].idList) {
+            cmpList = listArr[l].name;
+            break;
+          }
         }
+        $("#cmpItemsContainer").append("<div class='cmpCard board-" +
+        cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><a href='" +
+        cmpDue[cmpd].url + "' target='_blank'><div class='cardDesc'>" +
+        cmpDue[cmpd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
+        "board&colon;&ensp;" + cmpBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
+        cmpList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
+        cmpDLA + "</div></div></a></div>");
       }
-      $("#cmpItemsContainer").append("<div class='cmpCard board-" +
-      cmpDue[cmpd].idBoard + "' id='cmp-" + cmpDue[cmpd].id + "'><a href='" +
-      cmpDue[cmpd].url + "' target='_blank'><div class='cardDesc'>" +
-      cmpDue[cmpd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
-      "board&colon;&ensp;" + cmpBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
-      cmpList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
-      cmpDLA + "</div></div></a></div>");
     }
-    for (nd = 0; nd < nullDue.length; nd++) {
-      var ndDLA = new Date(nullDue[nd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
-      var ndBoard = "", ndList = "";
-      for (var b = 0; b < bhlen; b++) {
-        if (boardArr[b].id === nullDue[nd].idBoard) {
-          ndBoard = boardArr[b].name;
-          break;
+    if (nullDue.length === 0) {
+      $("#noDueDatesContainer").append("<div class='zeroResults'>" +
+      "No Items Without Due Dates</div>");
+    } else {
+      for (nd = 0; nd < nullDue.length; nd++) {
+        var ndDLA = new Date(nullDue[nd].dateLastActivity).toLocaleString(lang, ymdhmLocOpt);
+        var ndBoard = "", ndList = "";
+        for (var b = 0; b < bhlen; b++) {
+          if (boardArr[b].id === nullDue[nd].idBoard) {
+            ndBoard = boardArr[b].name;
+            break;
+          }
         }
-      }
-      for (var l = 0; l < lhlen; l++) {
-        if (listArr[l].id === nullDue[nd].idList) {
-          ndList = listArr[l].name;
-          break;
+        for (var l = 0; l < lhlen; l++) {
+          if (listArr[l].id === nullDue[nd].idList) {
+            ndList = listArr[l].name;
+            break;
+          }
         }
+        $("#noDueDatesContainer").append("<div class='nddCard board-" +
+        nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><a href='" +
+        nullDue[nd].url + "' target='_blank'><div class='cardDesc'>" +
+        nullDue[nd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
+        "board&colon;&ensp;" + ndBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
+        ndList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
+        ndDLA + "</div></div></a></div>");
       }
-      $("#noDueDatesContainer").append("<div class='nddCard board-" +
-      nullDue[nd].idBoard + "' id='ndd-" + nullDue[nd].id + "'><a href='" +
-      nullDue[nd].url + "' target='_blank'><div class='cardDesc'>" +
-      nullDue[nd].name + "</div><div class='cardSrc'><div class='cardSrcBoard'>" +
-      "board&colon;&ensp;" + ndBoard + "</div><div class='cardSrcList'>list&colon;&ensp;" +
-      ndList + "</div><div class='cardLastAct'>last activity&colon;&ensp;" +
-      ndDLA + "</div></div></a></div>");
     }
     /* $(".cardContainer").mCustomScrollbar({
       theme: "dark-3",
