@@ -13,8 +13,9 @@ body, #headerMain, .navItem {
   font-family: sans-serif;
 }
 
-#headerMain, #headerHidden {
+header {
   width: 100%;
+  padding: 0 20px;
 }
 
 #headerMain {
@@ -39,16 +40,25 @@ body, #headerMain, .navItem {
   font-weight: bold;
 }
 
+.pageName:before {
+  content: "xtal Trello Interface";
+}
+
+.pageVersion:before {
+  content: "version 0\002E 1";
+}
+
 .headerNav {
-  margin: 0 10vw;
+  padding: 10px 7vw;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
+  border-bottom: 1px solid #202020;
 }
 
 .navItem {
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 .navButton {
@@ -101,7 +111,11 @@ main { padding: 0 20px; }
 .dashSection {
   margin: 10px;
   padding: 20px 0;
-  border-top: 1px solid #202020;
+  border-bottom: 1px solid #202020;
+}
+
+.dashSection:last-child {
+  border: none;
 }
 
 #actionItemsContainer {
@@ -201,34 +215,6 @@ main { padding: 0 20px; }
   overflow-x: auto;
 }
 
-#recentActivity { display: none; }
-
-#recentActivity > .dashViewContainer {
-  overflow-x: auto;
-}
-
-#recentActivityContainer {
-  display: flex;
-  flex-flow: column wrap;
-  max-height: 500px;
-  padding: 10px;
-}
-
-.recentActivityItem {
-  min-width: 300px;
-  max-width: 300px;
-  padding: 5px;
-  margin-right: 20px;
-  border-top: 1px solid #202020;
-  font-size: 0.8rem;
-  line-height: 1.1;
-}
-
-.recentActivitySrc {
-  font-style: italic;
-  font-weight: bold;
-}
-
 .board {
   background-color: #202020;
   color: gainsboro;
@@ -236,7 +222,6 @@ main { padding: 0 20px; }
   padding: 10px 20px;
   border: 1px solid gainsboro;
   border-radius: 10px;
-  overflow-x: auto;
 }
 
 .board > h1 {
@@ -249,6 +234,7 @@ main { padding: 0 20px; }
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-start;
+  overflow-x: auto;
 }
 
 .list {
