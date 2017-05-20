@@ -45,7 +45,7 @@ header, footer {
 }
 
 .pageVersion:before {
-  content: "version 0\002E 1";
+  content: "beta version 0\002E 1";
 }
 
 #headerMain > .headerNav {
@@ -99,7 +99,7 @@ header, footer {
 }
 
 #copyText:before {
-  content: "xtal Trello Interface v0\002E 1"
+  content: "xtal Trello Interface beta v0\002E 1"
 }
 
 main { padding: 0 20px; }
