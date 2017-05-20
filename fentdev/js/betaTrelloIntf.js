@@ -134,7 +134,7 @@ function reapMyBoards() {
     var bhlen = boardArr.length, lhlen = listArr.length, chlen = cardArr.length;
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
 
-    $("#headerMain > .headerNav").css("visibility", "visible");
+    $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
 
     $("main").html("<section id='viewDash'><section class='dashSection' id='actionItems'>" +
     "<div class='dashHeader'><h1>Action Items</h1>" +
