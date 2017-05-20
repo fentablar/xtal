@@ -145,7 +145,6 @@ function reapMyBoards() {
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
 
     $(".loadNotice").css("display", "none");
-    $("#viewDash").css("display", "block");
     $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
 
     for (bh = 0; bh < bhlen; bh++) {
