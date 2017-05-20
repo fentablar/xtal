@@ -8,11 +8,12 @@ var hmLocOpt = { hour: "numeric", minute: "numeric" };
 
 var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
-  $("#viewBoards").append("<div class='board'><h1>Trello authorization error</h1>" +
-  "<br><p>Trello did not authorize&period;&ensp;" +
-  "Please ensure you click &quot;Allow&quot; so the app can connect to " +
-  "Trello&semi; you may need to clear your browser cache before " +
-  "attempting to reauthenticate&period;");
+
+  $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
+  "Trello Did Not Authorize</div><div class='loadSubheading'>" +
+  "please ensure you click &quot;Allow&quot; so the app can connect to " +
+  "Trello&semi; you may need to clear your browser cache before attempting "
+  "to reauthenticate</div></div>");
 }
 
 var trelloAuthSuccess = function() {
@@ -20,8 +21,7 @@ var trelloAuthSuccess = function() {
 
   $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
   "Fetching Data</div><div class='loadSubheading'>" +
-  "one moment please&hellip;" +
-  "</div></div>");
+  "one moment please&hellip;</div></div>");
 
   reapMyBoards();
 };
