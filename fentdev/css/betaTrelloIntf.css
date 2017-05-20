@@ -316,6 +316,7 @@ main { padding: 0 20px; }
 .loadNotice {
   margin: auto;
   text-align: center;
+  line-height: 1.5;
 }
 
 .loadHeading {
