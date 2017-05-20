@@ -9,15 +9,17 @@ var hmLocOpt = { hour: "numeric", minute: "numeric" };
 var trelloAuthFail = function() {
   console.log("Trello auth FAIL");
 
-  $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
-  "Trello Did Not Authorize</div><div class='loadSubheading'>" +
-  "please ensure you click &quot;Allow&quot; so the app can connect to " +
-  "Trello&semi; you may need to clear your browser cache before attempting " +
-  "to reauthenticate</div></div>");
+  $(".loadHeading").html("Trello Did Not Authorize");
+  $(".loadSubheading").html("please ensure you click &quot;Allow&quot; " +
+  "so the app can connect to Trello&semi; you may need to clear your browser " +
+  "cache before attempting to reauthenticate");
 }
 
 var trelloAuthSuccess = function() {
   console.log("Trello auth SUCCESS " + Date.now());
+
+  $(".loadHeading").html("Fetching Data");
+  $(".loadSubheading").html("one moment please&hellip;");
 
   $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
   "Fetching Data</div><div class='loadSubheading'>" +
@@ -27,10 +29,8 @@ var trelloAuthSuccess = function() {
 };
 
 $(function() {
-  $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
-  "Authorizing Trello&hellip;</div><div class='loadSubheading'>" +
-  "please allow pop&hyphen;ups on this site in order to authenticate" +
-  "</div></div>");
+  $(".loadHeading").html("Authorizing Trello&hellip;");
+  $(".loadSubheading").html("please allow pop&hyphen;ups on this site in order to authenticate");
 
   authorizeTrello();
 
@@ -39,11 +39,11 @@ $(function() {
     $(this).addClass("navActive");
     var opt = $(this).attr("id");
     if(opt === "dashButton") {
-      $("#viewDash").css({"display": "block"});
-      $("#viewBoards").css({"display": "none"});
+      $("#viewDash").css("display", "block");
+      $("#viewBoards").css("display", "none");
     } else {
-      $("#viewDash").css({"display": "none"});
-      $("#viewBoards").css({"display": "block"});
+      $("#viewDash").css("display", "none");
+      $("#viewBoards").css("display", "block");
     }
   });
 
@@ -144,25 +144,9 @@ function reapMyBoards() {
     var bhlen = boardArr.length, lhlen = listArr.length, chlen = cardArr.length;
     var pastDue = [], todayDue = [], futureDue = [], nullDue = [], cmpDue = [];
 
+    $(".loadNotice").css("display", "none");
+    $("#viewDash").css("display", "block");
     $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
-
-    $("main").html("<section id='viewDash'><section class='dashSection' id='actionItems'>" +
-    "<div class='dashHeader'><h1>Action Items</h1>" +
-    "<h4 class='showHide' id='actionItemsShowHide'>show&sol;hide</h4></div>" +
-    "<div class='dashViewContainer'><div id='actionItemsContainer'>" +
-    "<div class='actionsCategory' id='pastDue'><div class='categoryHeader'>" +
-    "<h3>Past Due Dates</h3></div><div class='cardContainer'></div></div>" +
-    "<div class='actionsCategory' id='todayDue'><div class='categoryHeader'" +
-    "<h3>Due Today</h3></div><div class='cardContainer'></div></div>" +
-    "<div class='actionsCategory' id='futureDue'><div class='categoryHeader'" +
-    "<h3>Upcoming Items</h3></div><div class='cardContainer'></div></div></div></div>" +
-    "</section><section class='dashSection' id='cmpItems'><div class='dashHeader'>" +
-    "<h1>Completed Items</h1><h4 class='showHide' id='cmpItemsShowHide'>show&sol;hide</h4>" +
-    "</div><div class='dashViewContainer'><div id='cmpItemsContainer'></div></div>" +
-    "</section><section class='dashSection' id='noDueDates'><div class='dashHeader'>" +
-    "<h1>Items with No Due Dates</h1><h4 class='showHide' id='noDueDatesShowHide'>" +
-    "show&sol;hide</h4></div><div class='dashViewContainer'><div id='noDueDatesContainer'>" +
-    "</div></div></section></section><section id='viewBoards'></section>");
 
     for (bh = 0; bh < bhlen; bh++) {
       $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +

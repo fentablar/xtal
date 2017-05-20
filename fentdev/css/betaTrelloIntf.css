@@ -104,14 +104,14 @@ header, footer {
 
 main { padding: 0 20px; }
 
+#viewDash, #viewBoards {
+  display: none;
+}
+
 #viewDash {
   background-color: whitesmoke;
   border-right: 1px solid gainsboro;
   border-left: 1px solid gainsboro;
-}
-
-#viewBoards {
-  display: none;
 }
 
 .dashHeader {
