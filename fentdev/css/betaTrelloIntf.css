@@ -131,12 +131,16 @@ main { padding: 0 20px; }
 .showHide {cursor: pointer}
 
 .dashSection {
-  padding: 20px 0;
+  padding: 20px 10px;
   border-bottom: 1px solid #303030;
 }
 
 .dashSection:last-child {
   border: none;
+}
+
+.dashViewContainer {
+  overflow-x: auto;
 }
 
 #actionItemsContainer {
@@ -176,7 +180,7 @@ main { padding: 0 20px; }
 .actCard:last-child {
   border-bottom: none;
 }
-
+/*
 #noDueDates > .dashViewContainer {
   overflow-x: auto;
 }
@@ -184,13 +188,12 @@ main { padding: 0 20px; }
 #cmpItems > .dashViewContainer {
   overflow-x: auto;
 }
-
+*/
 #noDueDatesContainer, #cmpItemsContainer {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   max-height: 500px;
-  padding: 10px;
 }
 
 .nddCard, .cmpCard {
@@ -201,10 +204,6 @@ main { padding: 0 20px; }
   border-top: 1px solid #303030;
   font-size: 1rem;
   line-height: 1.1;
-}
-
-.cardDue, .cardSrc {
-  /* text-align: center; */
 }
 
 .cardDue {
@@ -230,10 +229,6 @@ main { padding: 0 20px; }
 
 .cardLastAct {
   font-weight: bold;
-}
-
-#noDueDates > .dashViewContainer {
-  overflow-x: auto;
 }
 
 .board {
