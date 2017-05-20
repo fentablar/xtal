@@ -13,7 +13,7 @@ body, #headerMain, .navItem {
   font-family: sans-serif;
 }
 
-header {
+header, footer {
   width: 100%;
   padding: 0 20px;
 }
@@ -80,6 +80,21 @@ header {
   color: #303030;
   font-family: sans-serif;
   font-size: 0.9rem;
+}
+
+.pageCopy {
+  padding: 10px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #303030;
+  font-size: 0.8rem;
+  color: silver;
+}
+
+#copyText:before {
+  content: "\00A9 2017 David Jordan and Derek Hayden"
 }
 
 main { padding: 0 20px; }
