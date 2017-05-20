@@ -313,6 +313,21 @@ main { padding: 0 20px; }
   display: none;
 }
 
+.loadNotice {
+  margin: auto;
+  text-align: center;
+}
+
+.loadHeading {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.loadSubheading {
+  font-size: 1rem;
+  font-style: italic;
+}
+
 .zeroResults {
   margin: 20px auto;
   font-size: 1rem;

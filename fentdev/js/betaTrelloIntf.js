@@ -17,10 +17,20 @@ var trelloAuthFail = function() {
 
 var trelloAuthSuccess = function() {
   console.log("Trello auth SUCCESS " + Date.now());
+
+  $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
+  "Fetching Data</div><div class='loadSubheading'>" +
+  "one moment please&hellip;" +
+  "</div></div>");
+
   reapMyBoards();
 };
 
 $(function() {
+  $("main").html("<div class='loadNotice'><div class='loadHeading'>" +
+  "Authorizing Trello&hellip;</div><div class='loadSubheading'>" +
+  "please allow pop&hyphen;ups on this site in order to authenticate" +
+  "</div></div>");
 
   authorizeTrello();
 
