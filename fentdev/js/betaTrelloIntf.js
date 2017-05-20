@@ -2,7 +2,7 @@ var lang = navigator.language;
 
 var ymdhmLocOpt = { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" };
 var ymdLocOpt = { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "numeric" };
-var mdhmLocOpt = { month: "short", hour: "numeric", minute: "numeric" };
+var mdhmLocOpt = { month: "short", day: "numeric", hour: "numeric", minute: "numeric" };
 var mdLocOpt = { month: "short", day: "numeric" };
 var hmLocOpt = { hour: "numeric", minute: "numeric" };
 
