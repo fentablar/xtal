@@ -81,6 +81,7 @@ $(function() {
                   for (let i = 0; i < len; i++) {
                     listArr.push(data[i]);
                   }
+                  return listArr;
                 });
       });
     });
@@ -93,6 +94,7 @@ $(function() {
                   for (let i = 0; i < len; i++) {
                     cardArr.push(data[i]);
                   }
+                  return cardArr;
                 });
       });
     });
