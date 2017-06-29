@@ -1,5 +1,5 @@
 $(function() {
-  const trelloAuthFail = function() {
+  const trelloAuthFail = () => {
     $(".loadHeading").html("Trello did not authorize");
     $(".loadSubHeading").html("please ensure you click \u0022Allow\u0022 " +
       "so the app can connect to Trello\u003B you may need to clear your " +
@@ -27,7 +27,7 @@ $(function() {
     error: trelloAuthFail
   });
 
-  $(".navButton").on("click", function() {
+  $(".navButton").on("click", () => {
     $(".navButton").removeClass("navActive");
     $(this).addClass("navActive");
     let opt = $(this).attr("id");
