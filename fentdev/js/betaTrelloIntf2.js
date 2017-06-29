@@ -81,7 +81,6 @@ $(function() {
                   for (let i = 0; i < len; i++) {
                     listArr.push(data[i]);
                   }
-                  return listArr;
                 });
       });
     });
@@ -94,7 +93,6 @@ $(function() {
                   for (let i = 0; i < len; i++) {
                     cardArr.push(data[i]);
                   }
-                  return cardArr;
                 });
       });
     });
@@ -115,7 +113,7 @@ $(function() {
       $("#viewDash").css("display", "block");
       $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
       reapBoards();
-      reapLists();
+      reapLists(listArr);
       reapCards();
       console.log(boardArr);
       console.log(listArr);
@@ -135,7 +133,7 @@ $(function() {
       }
     }
 
-    function reapLists() {
+    function reapLists(listArr) {
       const len = listArr.length;
       console.log("list len: " + len);
       for (let i = 0; i < len; i++) {
