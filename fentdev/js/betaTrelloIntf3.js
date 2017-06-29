@@ -27,7 +27,7 @@ $(function() {
     error: trelloAuthFail
   });
 
-  $(".navButton").on("click", () => {
+  $(".navButton").on("click", function() {
     $(".navButton").removeClass("navActive");
     $(this).addClass("navActive");
     let opt = $(this).attr("id");
