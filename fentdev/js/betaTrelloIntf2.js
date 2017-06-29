@@ -74,7 +74,15 @@ $(function() {
     });
 
     const getLists = getBoards.then(function(bdata) {
-      console.log("getlists bdata: " + bdata);
+      let parr = bdata.map(function(brd) {
+        return Trello.get("boards/" + brd.id + "/lists")
+                .then(function(data) {
+                  for (let i = 0; i < len; i++) {
+                    listArr.push(data[i]);
+                  }
+                });
+      });
+      /*
       return bdata.map(function(brd) {
         return Trello.get("boards/" + brd.id + "/lists")
                 .then(function(data) {
@@ -85,6 +93,8 @@ $(function() {
                   }
                 });
       });
+      */
+      return Promise.all(parr);
     });
 
     const getCards = getBoards.then(function(bdata) {
@@ -116,7 +126,7 @@ $(function() {
       $("#viewDash").css("display", "block");
       $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
       reapBoards();
-      reapLists(listArr);
+      reapLists();
       reapCards();
       console.log(boardArr);
       console.log(listArr);
@@ -136,7 +146,7 @@ $(function() {
       }
     }
 
-    function reapLists(listArr) {
+    function reapLists() {
       const len = listArr.length;
       console.log("list len: " + len);
       for (let i = 0; i < len; i++) {
