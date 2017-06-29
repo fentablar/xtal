@@ -1,11 +1,11 @@
 $(function() {
-  const trelloAuthSuccess = function() {
+  const trelloAuthFail = function() {
     $(".loadHeading").html("Trello did not authorize");
     $(".loadSubHeading").html("please ensure you click \u0022Allow\u0022 " +
       "so the app can connect to Trello\u003B you may need to clear your " +
       "browser cache before attempting to reauthenticate");
   };
-  const trelloAuthFail = function() {
+  const trelloAuthSuccess = function() {
     $(".loadHeading").html("Fetching Data");
     $(".loadSubheading").html("one moment please\u2026");
     getAllData();
