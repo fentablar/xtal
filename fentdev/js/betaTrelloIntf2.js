@@ -83,6 +83,7 @@ $(function() {
                   }
                 });
       });
+      console.log(listArr);
     });
 
     const getCards = getBoards.then(function(bdata) {
@@ -95,6 +96,7 @@ $(function() {
                   }
                 });
       });
+      console.log(cardArr);
     });
 
     Trello.get("members/me").then(function(data) {
