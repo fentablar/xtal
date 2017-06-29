@@ -83,24 +83,11 @@ $(function() {
                   }
                 });
       });
-      /*
-      return bdata.map(function(brd) {
-        return Trello.get("boards/" + brd.id + "/lists")
-                .then(function(data) {
-                  const len = data.length;
-                  console.log(len);
-                  for (let i = 0; i < len; i++) {
-                    listArr.push(data[i]);
-                  }
-                });
-      });
-      */
       return Promise.all(parr);
     });
 
     const getCards = getBoards.then(function(bdata) {
-      console.log("getcards bdata: " + bdata);
-      return bdata.map(function(brd) {
+      const parr = bdata.map(function(brd) {
         return Trello.get("boards/" + brd.id + "/cards")
                 .then(function(data) {
                   const len = data.length;
@@ -109,6 +96,7 @@ $(function() {
                   }
                 });
       });
+      return Promise.all(parr);
     });
 
     Trello.get("members/me").then(function(data) {
@@ -348,7 +336,7 @@ $(function() {
               }
             }
             for (let k = 0; k < lstLen; k++) {
-              if (listArr[k].id === cmdDue[i].idList) {
+              if (listArr[k].id === cmpDue[i].idList) {
                 iList = listArr[i].name;
                 break;
               }
