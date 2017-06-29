@@ -120,20 +120,20 @@ $(function() {
     function reapBoards() {
       const len = boardArr.length;
       for (let i = 0; i < len; i++) {
-        $("#viewBoards").append("<div class='board' id='" + boardArr[bh].id +
-        "'><h1><a href='" + boardArr[bh].url + "' target='_blank'>" +
-        boardArr[bh].name + "</a></h1><div class='board-lists'></div></div>");
-        $(".selector").append("<option value='" + boardArr[bh].id + "'>" +
-        boardArr[bh].name + "</option>");
+        $("#viewBoards").append("<div class='board' id='" + boardArr[i].id +
+        "'><h1><a href='" + boardArr[i].url + "' target='_blank'>" +
+        boardArr[i].name + "</a></h1><div class='board-lists'></div></div>");
+        $(".selector").append("<option value='" + boardArr[i].id + "'>" +
+        boardArr[i].name + "</option>");
       }
     }
 
     function reapLists() {
       const len = listArr.length;
       for (let i = 0; i < len; i++) {
-        $("#" + listArr[lh].idBoard + " > .board-lists")
-        .append("<div class='list' id='" + listArr[lh].id + "'><h2>" +
-        listArr[lh].name + "</h2><div class='list-cards'></div></div>");
+        $("#" + listArr[i].idBoard + " > .board-lists")
+        .append("<div class='list' id='" + listArr[i].id + "'><h2>" +
+        listArr[i].name + "</h2><div class='list-cards'></div></div>");
       }
     }
 
