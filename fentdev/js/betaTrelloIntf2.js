@@ -70,6 +70,7 @@ $(function() {
       for (let i = 0; i < len; i++) {
         boardArr.push(data[i]);
       }
+      return boardArr;
     });
 
     const getLists = getBoards.then(function(bdata) {
