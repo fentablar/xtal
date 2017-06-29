@@ -169,7 +169,7 @@ $(function() {
           }
           $("#" + cardArr[i].idList + " > .list-cards")
             .append("<a href='" + cardArr[i].url + "' target='_blank'>" +
-            "<div class='card' id='" cardArr[i].id + "'>" +
+            "<div class='card' id='" + cardArr[i].id + "'>" +
             "<div class='crdLabels'>" + iLabels + "</div>" +
             "<div class='crdName'>" + cardArr[i].name + "</div>" +
             "<div class='crdDue'>" + iDue + "</div></div></a>");
