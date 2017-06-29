@@ -65,7 +65,7 @@ $(function() {
   function getAllData() {
     const me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
 
-    const getBoards = Trello.get("members/me/boards").then(function(data) {
+    const getBoards = Trello.get("members/me/boards").then(data => {
       const len = data.length;
       for (let i = 0; i < len; i++) {
         boardArr.push(data[i]);
@@ -73,10 +73,10 @@ $(function() {
       return boardArr;
     });
 
-    const getLists = getBoards.then(function(bdata) {
-      const parr = bdata.map(function(brd) {
+    const getLists = getBoards.then(bdata => {
+      const parr = bdata.map(brd => {
         return Trello.get("boards/" + brd.id + "/lists")
-                .then(function(data) {
+                .then(data => {
                   const len = data.length;
                   for (let i = 0; i < len; i++) {
                     listArr.push(data[i]);
@@ -86,10 +86,10 @@ $(function() {
       return Promise.all(parr);
     });
 
-    const getCards = getBoards.then(function(bdata) {
-      const parr = bdata.map(function(brd) {
+    const getCards = getBoards.then(bdata => {
+      const parr = bdata.map(brd => {
         return Trello.get("boards/" + brd.id + "/cards")
-                .then(function(data) {
+                .then(data => {
                   const len = data.length;
                   for (let i = 0; i < len; i++) {
                     cardArr.push(data[i]);
@@ -99,18 +99,17 @@ $(function() {
       return Promise.all(parr);
     });
 
-    Trello.get("members/me").then(function(data) {
-      Object.assign(me, data);
-    });
+    Trello.get("members/me").then(data => Object.assign(me, data));
 
-    Trello.get("members/me/organizations").then(function(data) {
+    Trello.get("members/me/organizations").then(data => {
       const len = data.length;
       for (let i = 0; i < len; i++) {
         teamArr.push(data[i]);
       }
+      return teamArr;
     });
 
-    Promise.all([getBoards, getLists, getCards]).then(function() {
+    Promise.all([getBoards, getLists, getCards]).then(() => {
       $(".loadNotice").css("display", "none");
       $("#viewDash").css("display", "block");
       $("#headerMain > .headerNav, .pageCopy").css("visibility", "visible");
