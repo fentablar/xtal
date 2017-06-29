@@ -141,12 +141,12 @@ $(function() {
       const lang = navigator.language, dtNow = new Date(Date.now()),
             dtHM = {hour: "numeric", minute: "numeric"},
             dtMD = {month: "short", day: "numeric"},
-            dtYMD = Object.create(dtOptMD);
+            dtYMD = Object.create(dtMD);
             dtYMD.year = "numeric";
-      const dtMDHM = Object.create(dtOptHM);
+      const dtMDHM = Object.create(dtHM);
             dtMDHM.month = "short";
             dtMDHM.day = "numeric";
-      const dtYMDHM = Object.create(dtOptMDHM);
+      const dtYMDHM = Object.create(dtMDHM);
             dtYMDHM.year = "numeric";
       const pastDue = [], todayDue = [], futureDue = [],
             nullDue = [], cmpDue = [];
