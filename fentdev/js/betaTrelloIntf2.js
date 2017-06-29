@@ -74,7 +74,7 @@ $(function() {
     });
 
     const getLists = getBoards.then(function(bdata) {
-      console.log("getlists bdata: "bdata);
+      console.log("getlists bdata: " + bdata);
       return bdata.map(function(brd) {
         return Trello.get("boards/" + brd.id + "/lists")
                 .then(function(data) {
@@ -87,7 +87,7 @@ $(function() {
     });
 
     const getCards = getBoards.then(function(bdata) {
-      console.log("getcards bdata: "bdata);
+      console.log("getcards bdata: " + bdata);
       return bdata.map(function(brd) {
         return Trello.get("boards/" + brd.id + "/cards")
                 .then(function(data) {
