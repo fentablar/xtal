@@ -122,7 +122,9 @@ $(function() {
 
     function reapBoards() {
       const len = boardArr.length;
+      console.log("board len: " + len);
       for (let i = 0; i < len; i++) {
+        console.log("board item: " + boardArr[i]);
         $("#viewBoards").append("<div class='board' id='" + boardArr[i].id +
         "'><h1><a href='" + boardArr[i].url + "' target='_blank'>" +
         boardArr[i].name + "</a></h1><div class='board-lists'></div></div>");
@@ -133,7 +135,9 @@ $(function() {
 
     function reapLists() {
       const len = listArr.length;
+      console.log("list len: " + len);
       for (let i = 0; i < len; i++) {
+        console.log("list item: " + listArr[i]);
         $("#" + listArr[i].idBoard + " > .board-lists")
         .append("<div class='list' id='" + listArr[i].id + "'><h2>" +
         listArr[i].name + "</h2><div class='list-cards'></div></div>");
@@ -159,7 +163,9 @@ $(function() {
 
       function brdVwDueDateArr() {
         const len = cardArr.length;
+        console.log("card len: " + len);
         for (let i = 0; i < len; i++) {
+          console.log("card item: " + cardArr[i]);
           let iLabels = "", iDue = "";
           if (cardArr[i].labels.length > 0) {
             for (let k = 0; k < cardArr[i].labels.length; k++) {
