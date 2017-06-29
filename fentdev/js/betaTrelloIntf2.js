@@ -79,6 +79,7 @@ $(function() {
         return Trello.get("boards/" + brd.id + "/lists")
                 .then(function(data) {
                   const len = data.length;
+                  console.log(len);
                   for (let i = 0; i < len; i++) {
                     listArr.push(data[i]);
                   }
