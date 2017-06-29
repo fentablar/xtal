@@ -77,6 +77,7 @@ $(function() {
       let parr = bdata.map(function(brd) {
         return Trello.get("boards/" + brd.id + "/lists")
                 .then(function(data) {
+                  const len = data.length;
                   for (let i = 0; i < len; i++) {
                     listArr.push(data[i]);
                   }
