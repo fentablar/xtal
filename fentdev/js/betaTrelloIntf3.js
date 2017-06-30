@@ -7,7 +7,7 @@ $(function() {
   };
   const trelloAuthSuccess = () => {
     $(".loadHeading").html("Fetching Data");
-    $(".loadSubheading").html("one moment please\u2026");
+    $(".loadSubHeading").html("one moment please\u2026");
     getAllData();
   };
 
