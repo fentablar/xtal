@@ -68,7 +68,10 @@ $(function() {
     const me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
 
     const getBoards = Trello.get("members/me/boards")
-                      .then(data => boardArr.push(...data));
+                      .then(data => {
+                        boardArr.push(...data);
+                        return boardArr;
+                      });
 
     const getLists = getBoards.then(bdata => {
       const parr = bdata.map(brd => {
