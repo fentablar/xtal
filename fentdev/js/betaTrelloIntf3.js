@@ -1,6 +1,6 @@
 $(function() {
   "use strict";
-  
+
   const trelloAuthFail = () => {
     $(".loadHeading").html("Trello did not authorize");
     $(".loadSubHeading").html("please ensure you click \u0022Allow\u0022 " +
@@ -67,15 +67,26 @@ $(function() {
   function getAllData() {
     const me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
 
-    const getBoards = Trello.get("members/me/boards").then(data => {
-      const len = data.length;
-      for (let i = 0; i < len; i++) {
-        boardArr.push(data[i]);
-      }
-      return boardArr;
-    });
+    const getBoards = Trello.get("members/me/boards")
+                      .then(data => boardArr.push(...data));
 
     const getLists = getBoards.then(bdata => {
+      const parr = bdata.map(brd => {
+        return Trello.get("boards/" + brd.id + "/lists")
+                .then(data => listArr.push(...data));
+      });
+      return Promise.all(parr);
+    });
+
+    const getCards = getBoards.then(bdata => {
+      const parr = bdata.map(brd => {
+        return Trello.get("boards/" + brd.id + "/cards")
+                .then(data => cardArr.push(...data));
+      });
+      return Promise.all(parr);
+    });
+
+/*    const getLists = getBoards.then(bdata => {
       const parr = bdata.map(brd => {
         return Trello.get("boards/" + brd.id + "/lists")
                 .then(data => {
@@ -86,9 +97,9 @@ $(function() {
                 });
       });
       return Promise.all(parr);
-    });
+    }); */
 
-    const getCards = getBoards.then(bdata => {
+/*    const getCards = getBoards.then(bdata => {
       const parr = bdata.map(brd => {
         return Trello.get("boards/" + brd.id + "/cards")
                 .then(data => {
@@ -99,7 +110,7 @@ $(function() {
                 });
       });
       return Promise.all(parr);
-    });
+    }); */
 
     Trello.get("members/me").then(data => Object.assign(me, data));
 
