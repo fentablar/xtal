@@ -67,8 +67,7 @@ $(function() {
   function getAllData() {
     const me = {}, teamArr = [], boardArr = [], listArr = [], cardArr = [];
 
-    const getBoards = Trello.get("members/me/boards")
-                      .then(data => {
+    const getBoards = Trello.get("members/me/boards").then(data => {
                         boardArr.push(...data);
                         return boardArr;
                       });
