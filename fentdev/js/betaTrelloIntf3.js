@@ -1,4 +1,6 @@
 $(function() {
+  "use strict";
+  
   const trelloAuthFail = () => {
     $(".loadHeading").html("Trello did not authorize");
     $(".loadSubHeading").html("please ensure you click \u0022Allow\u0022 " +
