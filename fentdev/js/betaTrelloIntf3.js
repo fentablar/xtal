@@ -78,7 +78,7 @@ $(function() {
           .then(data => listArr.push(...data)))));
 
     const getCards = getBoards.then(bdata =>
-      Proimise.all(bdata.map(brd =>
+      Promise.all(bdata.map(brd =>
         Trello.get("boards/" + brd.id + "/cards")
           .then(data => cardArr.push(...data)))));
 
