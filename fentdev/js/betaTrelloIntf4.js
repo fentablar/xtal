@@ -141,7 +141,7 @@ $(function() {
             }
           }
           if (crd.due !== null) {
-            due += "Due\u003A\u2002" + new Data(crd.due)
+            due += "Due\u003A\u2002" + new Date(crd.due)
               .toLocaleString(lang, dtYMDHM);
           }
           $("#" + crd.idList + " > .list-cards")
@@ -182,7 +182,7 @@ $(function() {
         }
         else {
           for (let pst of pastDue) {
-            let dt = new Data(pst.due).toLocaleString(lang, dtYMD)
+            let dt = new Date(pst.due).toLocaleString(lang, dtYMD)
                 dla = new Date(pst.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 pboard = "", plist = "";
             for (let brd of boardArr) {
@@ -215,7 +215,7 @@ $(function() {
         }
         else {
           for (let tdy of todayDue) {
-            let dt = new Data(tdy.due).toLocaleString(lang, dtHM)
+            let dt = new Date(tdy.due).toLocaleString(lang, dtHM)
                 dla = new Date(tdy.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 tboard = "", tlist = "";
             for (let brd of boardArr) {
@@ -248,7 +248,7 @@ $(function() {
         }
         else {
           for (let fut of futureDue) {
-            let dt = new Data(fut.due).toLocaleString(lang, dtYMDHM)
+            let dt = new Date(fut.due).toLocaleString(lang, dtYMDHM)
                 dla = new Date(tdy.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 fboard = "", flist = "";
             for (let brd of boardArr) {
@@ -311,7 +311,7 @@ $(function() {
         }
         else {
           for (let n of nullDue) {
-            let dla = new Data(n.dateLastActivity).toLocaleString(lang, dtYMDHM);
+            let dla = new Date(n.dateLastActivity).toLocaleString(lang, dtYMDHM);
                 nboard = "", nlist = "";
             for (let brd of boardArr) {
               if (brd.id === n.idBoard) {
