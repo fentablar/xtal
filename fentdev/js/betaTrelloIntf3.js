@@ -72,7 +72,17 @@ $(function() {
                         return boardArr;
                       });
 
-    const getLists = getBoards.then(bdata => {
+    const getLists = getBoards.then(bdata =>
+      Promise.all(bdata.map(brd =>
+        Trello.get("boards/" + brd.id + "/lists")
+          .then(data => listArr.push(...data)))));
+
+    const getCards = getBoards.then(bdata =>
+      Proimise.all(bdata.map(brd =>
+        Trello.get("boards/" + brd.id + "/cards")
+          .then(data => cardArr.push(...data)))));
+
+/*    const getLists = getBoards.then(bdata => {
       const parr = bdata.map(brd => {
         return Trello.get("boards/" + brd.id + "/lists")
                 .then(data => listArr.push(...data));
@@ -86,43 +96,11 @@ $(function() {
                 .then(data => cardArr.push(...data));
       });
       return Promise.all(parr);
-    });
-
-/*    const getLists = getBoards.then(bdata => {
-      const parr = bdata.map(brd => {
-        return Trello.get("boards/" + brd.id + "/lists")
-                .then(data => {
-                  const len = data.length;
-                  for (let i = 0; i < len; i++) {
-                    listArr.push(data[i]);
-                  }
-                });
-      });
-      return Promise.all(parr);
-    }); */
-
-/*    const getCards = getBoards.then(bdata => {
-      const parr = bdata.map(brd => {
-        return Trello.get("boards/" + brd.id + "/cards")
-                .then(data => {
-                  const len = data.length;
-                  for (let i = 0; i < len; i++) {
-                    cardArr.push(data[i]);
-                  }
-                });
-      });
-      return Promise.all(parr);
     }); */
 
     Trello.get("members/me").then(data => Object.assign(me, data));
 
-    Trello.get("members/me/organizations").then(data => {
-      const len = data.length;
-      for (let i = 0; i < len; i++) {
-        teamArr.push(data[i]);
-      }
-      return teamArr;
-    });
+    Trello.get("members/me/organizations").then(data => teamArr.push(...data));
 
     Promise.all([getBoards, getLists, getCards]).then(() => {
       $(".loadNotice").css("display", "none");
