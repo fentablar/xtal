@@ -96,7 +96,7 @@ $(function() {
     });
 
     function reapBoards() {
-      for (brd of boardArr) {
+      for (let brd of boardArr) {
         $("#viewBoards").append("<div class='board' id='" + brd.id + "'>" +
         "<h1><a href='" + brd.url + "' target='_blank'>" + brd.name + "</a></h1>" +
         "<div class='board-lists'></div></div>");
@@ -107,7 +107,7 @@ $(function() {
     }
 
     function reapLists() {
-      for (lst of listArr) {
+      for (let lst of listArr) {
         $("#" + lst.idBoard + " > .board-lists")
           .append("<div class='list' id='" + lst.id + "'>" +
           "<h2>" + lst.name + "</h2><div class='list-cards'></div></div>");
@@ -132,10 +132,10 @@ $(function() {
       ddView();
 
       function brdVwDueDateArr() {
-        for (crd of cardArr) {
+        for (let crd of cardArr) {
           let labels = "", due = "";
           if (crd.labels.length > 0) {
-            for (lbl of crd.labels) {
+            for (let lbl of crd.labels) {
               labels += "<div class='crdLbl' style='background-color:" +
               lbl.color + "'></div>";
             }
@@ -181,17 +181,17 @@ $(function() {
             .append("<div class='zeroResults'>No Past Due Items</div>");
         }
         else {
-          for (pst of pastDue) {
+          for (let pst of pastDue) {
             let dt = new Data(pst.due).toLocaleString(lang, dtYMD)
                 dla = new Date(pst.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 pboard = "", plist = "";
-            for (brd of boardArr) {
+            for (let brd of boardArr) {
               if (brd.id === pst.idBoard) {
                 pboard = brd.name;
                 break;
               }
             }
-            for (lst of listArr) {
+            for (let lst of listArr) {
               if (lst.id === pst.idList) {
                 plist = lst.name;
                 break;
@@ -214,17 +214,17 @@ $(function() {
             .append("<div class='zeroResults'>No Items Due Today</div>");
         }
         else {
-          for (tdy of todayDue) {
+          for (let tdy of todayDue) {
             let dt = new Data(tdy.due).toLocaleString(lang, dtHM)
                 dla = new Date(tdy.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 tboard = "", tlist = "";
-            for (brd of boardArr) {
+            for (let brd of boardArr) {
               if (brd.id === tdy.idBoard) {
                 tboard = brd.name;
                 break;
               }
             }
-            for (lst of listArr) {
+            for (let lst of listArr) {
               if (lst.id === tdy.idList) {
                 tlist = lst.name;
                 break;
@@ -247,17 +247,17 @@ $(function() {
             .append("<div class='zeroResults'>No Upcoming Items</div>");
         }
         else {
-          for (fut of futureDue) {
+          for (let fut of futureDue) {
             let dt = new Data(fut.due).toLocaleString(lang, dtYMDHM)
                 dla = new Date(tdy.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 fboard = "", flist = "";
-            for (brd of boardArr) {
+            for (let brd of boardArr) {
               if (brd.id === fut.idBoard) {
                 fboard = brd.name;
                 break;
               }
             }
-            for (lst of listArr) {
+            for (let lst of listArr) {
               if (lst.id === fut.idList) {
                 flist = lst.name;
                 break;
@@ -280,16 +280,16 @@ $(function() {
             .append("<div class='zeroResults'>No Completed Items</div>");
         }
         else {
-          for (cmp of cmpDue) {
+          for (let cmp of cmpDue) {
             let dla = new Date(cmp.dateLastActivity).toLocaleString(lang, dtYMDHM),
                 cboard = "", clist = "";
-            for (brd of boardArr) {
+            for (let brd of boardArr) {
               if (brd.id === cmp.idBoard) {
                 cboard = brd.name;
                 break;
               }
             }
-            for (lst of listArr) {
+            for (let lst of listArr) {
               if (lst.id === cmp.idList) {
                 clist = lst.name;
                 break;
@@ -310,16 +310,16 @@ $(function() {
             .append("<div class='zeroResults'>No Items Without Due Dates</div>");
         }
         else {
-          for (n of nullDue) {
+          for (let n of nullDue) {
             let dla = new Data(n.dateLastActivity).toLocaleString(lang, dtYMDHM);
                 nboard = "", nlist = "";
-            for (brd of boardArr) {
+            for (let brd of boardArr) {
               if (brd.id === n.idBoard) {
                 nboard = brd.name;
                 break;
               }
             }
-            for (lst of listArr) {
+            for (let lst of listArr) {
               if (lst.id === n.idList) {
                 nlist = lst.name;
                 break;
