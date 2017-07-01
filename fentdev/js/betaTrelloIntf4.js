@@ -144,7 +144,7 @@ $(function() {
             due += "Due\u003A\u2002" + new Data(crd.due)
               .toLocaleString(lang, dtYMDHM);
           }
-          $("#" + crd.idList + " > .list-cards'")
+          $("#" + crd.idList + " > .list-cards")
             .append("<a href='" + crd.url + "' target='_blank'>" +
             "<div class='card' id='" + crd.id + "'>" +
             "<div class='crdLabels'>" + labels + "</div>" +
